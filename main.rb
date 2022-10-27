@@ -1,4 +1,5 @@
 require './Bohdan Khudo/bohdan_khudo.rb'
+require './Bryl Andrii/bryl_andrii.rb'
 
 puts "Students:
 1.Bryl Andrii
@@ -26,6 +27,9 @@ while t == "y"
       student.task2
     when 3
       student.task3
+
+    else
+      puts "Wrong task number"
     end
 
   end
@@ -58,9 +62,11 @@ while t == "y"
   when "9"
     student = BohdanKhudo.new
     run_task(student, task_number)
+  else
+    puts "Wrong student number!"
   end
 
-  puts "Do you want to continue? y/n"
+  puts "Do you want to pick new student? y/n"
   t = gets.chomp
 
 end
