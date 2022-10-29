@@ -1,16 +1,10 @@
-def count_positives_sum_negatives(lst)
-  if lst.to_a.empty?
-    return []
+puts "Enter list of numbers: "
+
+def square_or_square_root(arr)
+  arr.map do |n|
+    sqrt = Math.sqrt(n)
+    sqrt % 1 == 0 ? sqrt : n**2
   end
-  pos = 0
-  neg = 0
-  lst.each { |i|
-    if i > 0
-      pos += 1
-    else
-      neg += i
-    end
-  }
-  a = Array[pos, neg]
-  a
 end
+
+puts square_or_square_root(gets.to_f.split)
