@@ -3,7 +3,7 @@
 # 1 Mile = 1.609344 kilometres
 puts "Enter the volume of imperial gallon: "
 def converter(mpg)
-   (mpg*0.354006).round(2)
+   (mpg*(1.609344/4.54609188)).round(2)
 end
 
 puts converter(gets.to_f)
