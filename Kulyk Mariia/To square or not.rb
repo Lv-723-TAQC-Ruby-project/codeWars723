@@ -7,5 +7,5 @@ def square_or_square_root(arr)
   end
 end
 
-puts square_or_square_root(gets.to_f.split)
+puts square_or_square_root(gets)
 
