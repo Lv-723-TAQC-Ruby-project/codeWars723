@@ -1,9 +1,11 @@
-puts "Enter miles per imperial gallon: "
+puts "Enter list of numbers: "
 
-def converter(mpg)
-  output = (mpg * 1.609344/4.54609188).round(2)
-  return output
+def square_or_square_root(arr)
+  arr.map do |n|
+    sqrt = Math.sqrt(n)
+    sqrt % 1 == 0 ? sqrt : n**2
+  end
 end
 
-puts converter(gets.to_f);
+puts square_or_square_root(gets.to_f.split)
 
