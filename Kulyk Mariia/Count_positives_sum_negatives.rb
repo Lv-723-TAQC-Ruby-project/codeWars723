@@ -1,7 +1,7 @@
 puts "Enter an array of int numbers: "
 
 def count_positives_sum_negatives(lst)
-  if lst.to_a.empty?
+  if lst == 0
     return []
   end
   pos = 0
@@ -13,8 +13,6 @@ def count_positives_sum_negatives(lst)
       neg += i
     end
   }
-  a = Array[pos, neg]
-  a
-end
 
+end
 puts count_positives_sum_negatives(gets)
