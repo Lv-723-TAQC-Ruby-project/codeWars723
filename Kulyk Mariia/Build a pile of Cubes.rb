@@ -1,3 +1,5 @@
+puts "Enter the total volume m of the building: "
+
 def find_nb(m)
   n = 1
   sum = 1
@@ -7,3 +9,5 @@ def find_nb(m)
   end
   return sum == m ? n : -1
 end
+
+puts find_nb(gets)
