@@ -10,7 +10,7 @@ puts "Students:
 6.Kovalov Stanislav
 7.Kulyk Mery
 8.Kmytiuk Natalyia
-9.Bohdan Khudo"
+9.Khudo Bohdan"
 
 t = "y"
 while t == "y"
