@@ -1,3 +1,3 @@
-def litres(time)
+def bkh1_litres(time)
   (time * 0.5).to_i
 end

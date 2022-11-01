@@ -1,4 +1,4 @@
-def square_or_square_root(arr)
+def bkh4_square_or_square_root(arr)
   result = []
   for a in arr
     sqrt = Math.sqrt(a).to_i
