@@ -6,7 +6,6 @@ g = l[0].to_i
 m = l[1].to_i
 n = l[2].to_i
 
-
 def gap(g, m, n)
   numbers = (m).upto(n-1).select { |b| b.odd? }
   pair = nil
