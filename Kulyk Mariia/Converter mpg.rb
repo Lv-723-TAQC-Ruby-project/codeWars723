@@ -5,4 +5,4 @@ def converter(mpg)
   return output
 end
 
-puts converter(gets.to_f);
+#puts converter(gets.to_f)
