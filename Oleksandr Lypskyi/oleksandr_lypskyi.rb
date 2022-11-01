@@ -15,7 +15,7 @@ require './Oleksandr Lypskyi/14. Easy balance checking'
 require './Oleksandr Lypskyi/15. Floating-point Approximation'
 require './Oleksandr Lypskyi/16. Rainfall'
 
-class OleksandrLypskyi
+class LypskyiOleksandr
   def task1
     puts "Input time:"
     time = gets.chomp.to_i
