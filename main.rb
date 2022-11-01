@@ -1,5 +1,6 @@
 require './Bohdan Khudo/bohdan_khudo.rb'
 require './Bryl Andrii/bryl_andrii.rb'
+require './Oleksandr Lypskyi/oleksandr_lypskyi.rb'
 
 puts "Students:
 1.Bryl Andrii
@@ -10,7 +11,7 @@ puts "Students:
 6.Kovalov Stanislav
 7.Kulyk Mery
 8.Kmytiuk Natalyia
-9.Bohdan Khudo"
+9.Khudo Bohdan"
 
 t = "y"
 while t == "y"

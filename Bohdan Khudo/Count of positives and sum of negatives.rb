@@ -1,4 +1,4 @@
-def count_positives_sum_negatives(lst)
+def bkh5_count_positives_sum_negatives(lst)
   if lst == []
     return lst
   end
