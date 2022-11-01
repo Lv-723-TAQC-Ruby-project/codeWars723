@@ -32,4 +32,4 @@ def balance(b)
 end
 
 
-puts balance(input)
+#puts balance(input)

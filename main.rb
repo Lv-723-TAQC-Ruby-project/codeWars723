@@ -1,5 +1,6 @@
 require './Bohdan Khudo/bohdan_khudo.rb'
 require './Bryl Andrii/bryl_andrii.rb'
+require './Oleksandr Lypskyi/oleksandr_lypskyi.rb'
 
 puts "Students:
 1.Bryl Andrii

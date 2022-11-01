@@ -15,4 +15,4 @@ def count_positives_sum_negatives(lst)
   }
 
 end
-puts count_positives_sum_negatives(gets)
+#puts count_positives_sum_negatives(gets)
