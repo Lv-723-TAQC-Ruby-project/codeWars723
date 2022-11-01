@@ -10,4 +10,4 @@ def find_nb(m)
   return sum == m ? n : -1
 end
 
-puts find_nb(gets)
+#puts find_nb(gets)
