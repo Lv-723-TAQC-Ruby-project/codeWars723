@@ -5,4 +5,4 @@ def new_avg(arr, newavg)
   result <= 0? (raise ArgumentError) : result.ceil
 end
 
-puts new_avg(gets, gets)
+#puts new_avg(gets, gets)
