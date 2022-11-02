@@ -1,7 +1,7 @@
 def extract_numbers(town, data_strng)
-  town_data = data_strng.split("\n")
-  record = town_data.select { |line| line.split(":").shift == town }.join
-  return -1 if record == ''
+  town_data = data_strng.split("\n") #conver data to array data
+  record = town_data.select { |line| line.split(":").shift == town }.join #chose town's names from lines with data
+  return -1 if record == '' # if town is not defined, show -1
   yield record.scan(/\d+\.\d+/).map(&:to_f)
 end
 
