@@ -23,6 +23,10 @@ class TaskRuner
         puts result
     end
 
+    def converter
+        #ToDO
+    end
+
     def set_user(user) 
         @@user = user 
     end
