@@ -1,14 +1,14 @@
-require '../../codeWars723/Kulyk Mariia/Keep Hydrated.rb'
-require '../../codeWars723/Kulyk Mariia/Volume.rb'
-require '../../codeWars723/Kulyk Mariia/Converter mpg.rb'
-require '../../codeWars723/Kulyk Mariia/Convert a String to a Number'
-require '../../codeWars723/Kulyk Mariia/Count_positives_sum_negatives'
-require '../../codeWars723/Kulyk Mariia/To square or not'
-require '../../codeWars723/Kulyk Mariia/Wilson Primes'
-require '../../codeWars723/Kulyk Mariia/Formatting decimal places'
-require '../../codeWars723/Kulyk Mariia/Find numbers which are divisible by given number'
-require '../../codeWars723/Kulyk Mariia/Sum of the first nth term of Series'
-require '../../codeWars723/Kulyk Mariia/Looking for a benefactor'
+require '../../codeWars723/Kulyk_Mariia/Keep_Hydrated'
+require '../../codeWars723/Kulyk_Mariia/Volume'
+require '../../codeWars723/Kulyk_Mariia/Converter_mpg'
+require '../../codeWars723/Kulyk_Mariia/Convert_a_String_to_a_Number'
+require '../../codeWars723/Kulyk_Mariia/Count_positives_sum_negatives'
+require '../../codeWars723/Kulyk_Mariia/To_square_or_not'
+require '../../codeWars723/Kulyk_Mariia/Wilson_Primes'
+require '../../codeWars723/Kulyk_Mariia/Formatting_decimal_places'
+require '../../codeWars723/Kulyk_Mariia/Find_numbers_which_are_divisible_by_given_number'
+require '../../codeWars723/Kulyk_Mariia/Sum_of_the_first_nth_term_of_Series'
+require '../../codeWars723/Kulyk_Mariia/Looking_for_a_benefactor'
 
 class Kyluk_Mariia
 
@@ -46,11 +46,11 @@ class Kyluk_Mariia
   end
 
   def task9
-    puts = "Result = #{divisible_by(gets, gets)}"
+    puts "Result = #{divisible_by(gets, gets)}"
   end
 
   def task10
-    puts = "Result = #{new_avg(gets, gets)}"
+    puts "Result = #{new_avg(gets, gets)}"
   end
 
   def task11
