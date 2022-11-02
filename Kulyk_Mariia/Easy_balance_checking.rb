@@ -23,7 +23,7 @@ def balance(b)
     items += 1
     entries = ln.match /(\d+)(.+?)\s*(\d+\.\d+)/
     balance -= entries[3].to_f
-    res  << "#{entries[1]} #{entries[2].scan(/\w+/).first} #{'%.2f' % entries[3].to_f} Balance #{'%.2f' % balance}"
+    res << "#{entries[1]} #{entries[2].scan(/\w+/).first} #{'%.2f' % entries[3].to_f} Balance #{'%.2f' % balance}"
   end
 
   res << "Total expense  #{'%.2f' % (init - balance)}"
