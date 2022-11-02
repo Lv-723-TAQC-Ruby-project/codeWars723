@@ -25,7 +25,8 @@ class ConsoleReader
     end
 
     def read_string
-        #ToDo
+        temp = gets.chomp
+        return temp
     end
-
+    
 end
