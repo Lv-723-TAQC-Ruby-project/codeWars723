@@ -6,4 +6,4 @@ def bkh3_converter(mpg)
   format("%.2f", kpl).to_f
 end
 
-puts converter(12)
+puts bkh3_converter(12)
