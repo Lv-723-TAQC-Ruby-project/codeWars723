@@ -1,0 +1,6 @@
+
+class FiveImpl < Fiv
+
+
+
+end
