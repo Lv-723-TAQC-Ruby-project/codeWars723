@@ -2,7 +2,7 @@
 
 require './utils/TaskRuner'
 
-students = %w[BrylAndrii SofiiaOmetiukh LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMariia
+students = %w[BrylAndrii OmetiukhSofiia LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMariia
               KmytiukNatalyia KhudoBohdan]
 
 puts 'Students:'
