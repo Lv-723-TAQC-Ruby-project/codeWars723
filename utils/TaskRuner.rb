@@ -26,7 +26,14 @@ class TaskRuner
   end
 
   def converter
-    # ToDO
+    puts "Enter miles per imperial gallon: "
+    mpg = @@reader.read_float
+    result = EightImpl.converter(mpg)
+    puts result
+  end
+
+  def square_or_square_root
+    # TODO
   end
 
   def set_user(user)
