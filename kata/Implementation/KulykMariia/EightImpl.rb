@@ -1,4 +1,3 @@
-
 class EightImpl < Eight
 
   def self.litres(time)
@@ -10,7 +9,7 @@ class EightImpl < Eight
   end
 
   def self.converter(mpg)
-    output = (mpg * 1.609344/4.54609188).round(2)
+    output = (mpg * 1.609344 / 4.54609188).round(2)
     return output
   end
 
@@ -48,7 +47,8 @@ class EightImpl < Eight
     end
 
     def self.divisible_by(numbers, divisor)
-      numbers.select{ |n| n % divisor == 0 }
+      numbers.select { |n| n % divisor == 0 }
     end
 
+  end
 end
