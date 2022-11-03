@@ -2,7 +2,7 @@
 
 require './utils/TaskRuner'
 
-students = %w[BrylAndrii OmetiukhSofiya LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMariia
+students = %w[BrylAndrii SofiiaOmetiukh LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMariia
               KmytiukNatalyia KhudoBohdan]
 
 puts 'Students:'
@@ -41,3 +41,18 @@ while t
   t = gets.chomp
   t = t == 'true'
 end
+
+
+
+
+# a = runner.method(:set_user)
+
+# a.call(students[1])
+
+# d = {
+#   1=> runner.method(:litres),
+#   2=> runner.method(:run_get_volume_of_cuboid)
+# }
+
+# puts d
+# d[1].call()
