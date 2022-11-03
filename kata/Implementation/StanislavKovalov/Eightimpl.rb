@@ -50,6 +50,6 @@ class Eightimpl<Eight
         result.append(n)
       end
     end
-    return result
+    result
   end
 end
