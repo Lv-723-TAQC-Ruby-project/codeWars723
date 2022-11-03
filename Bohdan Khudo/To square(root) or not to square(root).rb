@@ -11,4 +11,4 @@ def bkh4_square_or_square_root(arr)
   return result
 end
 
-puts square_or_square_root([25, 2])
+puts bkh4_square_or_square_root([25, 2])

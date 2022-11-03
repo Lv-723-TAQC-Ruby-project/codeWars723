@@ -13,4 +13,4 @@ def bkh5_count_positives_sum_negatives(lst)
   return result
 end
 
-puts count_positives_sum_negatives([])
+puts bkh5_count_positives_sum_negatives([])

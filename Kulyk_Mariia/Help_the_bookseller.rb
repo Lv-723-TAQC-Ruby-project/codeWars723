@@ -1,4 +1,4 @@
-
+#puts "Enter data: "
 def stockList(stock_list, categories)
   return "" if stock_list.empty? || categories.empty?
 
@@ -10,3 +10,7 @@ def stockList(stock_list, categories)
 
   categories.map { |category| "(#{category} : #{quantities[category]})" }.join(" - ")
 end
+
+#puts stockList(gets, gets)
+# stock list = ["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"]
+# category = ["A", "B"]
