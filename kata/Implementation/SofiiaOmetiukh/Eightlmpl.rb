@@ -1,21 +1,21 @@
+# frozen_string_literal: true
 
-class EightImpl<Eight
-
+class EightImpl < Eight
   def self.litres(time)
-     time/2.floor
+    time / 2.floor
   end
 
   def self.get_volume_of_cuboid(length, width, height)
-     length*width*height
+    length * width * height
   end
 
   def self.converter(mpg)
-     (mpg*1.609344/4.54609188).round(2)
+    (mpg * 1.609344 / 4.54609188).round(2)
   end
 
   def self.square_or_square_root(arr)
     arr.map do |num|
-      if Math.sqrt(num) % 1 == 0
+      if (Math.sqrt(num) % 1).zero?
         Integer.sqrt(num)
       else
         (num * num)
@@ -24,10 +24,9 @@ class EightImpl<Eight
   end
 
   def self.count_positives_sum_negatives(lst)
-    if lst == []
-      return lst
-    end
-    [lst.count{|n| n > 0}, lst.select{|n| n < 0}.reduce(0, :+)]
+    return lst if lst == []
+
+    [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
   end
 
   def self.string_to_number(s)
@@ -39,10 +38,10 @@ class EightImpl<Eight
   end
 
   def self.two_decimal_places(n)
-     n.round(2)
+    n.round(2)
   end
 
   def self.divisible_by(numbers, divisor)
-    numbers.select{ |n| n % divisor == 0 }
+    numbers.select { |n| (n % divisor).zero? }
   end
 end
