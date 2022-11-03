@@ -1,6 +1,6 @@
 require './utils/TaskRuner.rb'
 
-students = %w[BrylAndrii OmetiukhSofiya LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMery KmytiukNatalyia KhudoBohdan]
+students = %w[BrylAndrii OmetiukhSofiya LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMariia KmytiukNatalyia KhudoBohdan]
 
 puts "Students:"
 i = 0
