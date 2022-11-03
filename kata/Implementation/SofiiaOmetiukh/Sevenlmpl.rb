@@ -1,0 +1,4 @@
+
+class SevenImpl<Seven
+
+end
