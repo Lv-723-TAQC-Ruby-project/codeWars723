@@ -2,22 +2,27 @@
 
 require './kata/Eight'
 
+GALLON = 4.54609188
+MILE = 1.609344
 class EightImpl < Eight
+
+  # 1. Keep Hydrated!
   def self.litres(time)
     (time * 0.5).to_i
   end
 
+  # 2. Volume
   def self.get_volume_of_cuboid(length, width, height)
     length * width * height
   end
 
-  GALLON = 4.54609188
-  MILE = 1.609344
+  # 3. Miles per gallon to kilometers per liter
   def self.converter(mpg)
     kpl = (mpg * MILE) / GALLON
     format('%.2f', kpl).to_f
   end
 
+  # 4. To square root or no to square
   def self.square_or_square_root(arr)
     result = []
     arr.each do |a|
@@ -31,6 +36,7 @@ class EightImpl < Eight
     result
   end
 
+  # 5. Count of positives / sum of negatives
   def self.count_positives_sum_negatives(lst)
     return lst if lst == []
 
@@ -45,20 +51,22 @@ class EightImpl < Eight
     result
   end
 
+  # 6. Convert a String to a Number
   def self.string_to_number(s)
     s.to_i
   end
 
+  # 7. Willson primes
   def self.am_I_Wilson(p)
-    return true if [5, 13, 563].include?(p)
-
-    false
+     [5, 13, 563].include?(p)
   end
 
+  # 8. Formatting decimal places
   def self.two_decimal_places(n)
     n.round(2)
   end
 
+  # 9. Find numbers which are divisible by given number
   def self.divisible_by(numbers, divisor)
     result = []
     numbers.each do |n|

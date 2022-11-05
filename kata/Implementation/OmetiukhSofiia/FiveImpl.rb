@@ -1,5 +1,5 @@
 
-class FiveImpl < Fiv
+class FiveImpl < Five
 
   def self.gap(g, m, n)
     numbers = m.upto(n - 1).select(&:odd?)

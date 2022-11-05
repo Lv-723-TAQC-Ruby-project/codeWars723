@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Fiv
+class Five
   # Gap in Primes
   def gap(g, m, n)
     raise NotImplementedError, 'text'
