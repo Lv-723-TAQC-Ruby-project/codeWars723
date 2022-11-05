@@ -24,35 +24,21 @@ while t
   end
   runner.set_user(students[student_number - 1])
 
+  methods = {
+    1 => runner.method(:litres),
+    2 => runner.method(:run_get_volume_of_cuboid),
+    3 => runner.method(:converter)
+  }
   puts 'Please, input task number [1-24]: '
-  task_number = gets.chomp
-
-  case task_number
-  when '1'
-    runner.litres
-  when '2'
-    runner.run_get_volume_of_cuboid
-  when '3'
-    runner.converter
-  else
-    puts 'Wrong task number'
+  task_number = gets.chomp.to_i
+  if task_number < 1 || task_number > 24
+    puts 'Wrong task number!'
+    break
   end
+
+  methods[task_number].call
+
   puts 'Do you want to pick new student? true/false'
   t = gets.chomp
-  t = t == 'true'
+  t = t == 'true' || t == 't'
 end
-
-
-
-
-# a = runner.method(:set_user)
-
-# a.call(students[1])
-
-# d = {
-#   1=> runner.method(:litres),
-#   2=> runner.method(:run_get_volume_of_cuboid)
-# }
-
-# puts d
-# d[1].call()
