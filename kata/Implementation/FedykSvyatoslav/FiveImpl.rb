@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FivImpl < Fiv
+class FivImpl < Five
   def self.is_prime(n)
     (2..Math.sqrt(n).round).each { |i| return false if (n % i).zero? }
     true

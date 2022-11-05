@@ -5,7 +5,7 @@ class EightImpl < Eight
   end
 
   def self.get_volume_of_cuboid(length, width, height)
-    (length * width * height)
+    return length * width * height
   end
 
   def self.converter(mpg)
