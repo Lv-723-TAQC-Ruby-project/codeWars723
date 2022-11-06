@@ -2,8 +2,8 @@
 
 require './utils/TaskRuner'
 
-students = %w[BrylAndrii OmetiukhSofiia LypskyiOleksandr KovalovVladyslav FedykSvyatoslav KovalovStanislav KulykMariia
-              KmytiukNatalyia KhudoBohdan]
+students = Dir["kata/Implementation/*"]
+students.map { |string| string.slice! "kata/Implementation/"}
 
 puts 'Students:'
 i = 0
