@@ -17,7 +17,12 @@ methods = {
   1 => runner.method(:litres),
   2 => runner.method(:run_get_volume_of_cuboid),
   3 => runner.method(:converter),
-  4 => runner.method(:square_or_square_root)
+  4 => runner.method(:square_or_square_root),
+  5 => runner.method(:count_positives_sum_negatives),
+  6 => runner.method(:string_to_number),
+  7 => runner.method(:am_I_Wilson),
+  8 => runner.method(:two_decimal_places),
+  9 => runner.method(:divisible_by)
 }
 
 t = true

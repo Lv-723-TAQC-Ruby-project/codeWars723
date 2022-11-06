@@ -44,6 +44,48 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
+  def count_positives_sum_negatives
+    require @require_eight_impl
+    puts "Enter array of integers:"
+    arr = @@reader.read_int_arr
+    result = EightImpl.count_positives_sum_negatives(arr)
+    puts "Result: #{result}"
+  end
+
+  def string_to_number
+    require @require_eight_impl
+    puts "Enter number as string:"
+    str = @@reader.read_string
+    result = EightImpl.string_to_number(str)
+    puts "Result: #{result}"
+  end
+
+  def am_I_Wilson
+    require @require_eight_impl
+    puts "Enter number:"
+    number = @@reader.read_int
+    result = EightImpl.am_I_Wilson(number)
+    puts "Result: Number is Wilson: #{result}"
+  end
+
+  def two_decimal_places
+    require @require_eight_impl
+    puts "Enter float number:"
+    number = @@reader.read_float
+    result = EightImpl.two_decimal_places(number)
+    puts "Result: #{result}"
+  end
+
+  def divisible_by
+    require @require_eight_impl
+    puts "Enter numbers:"
+    numbers = @@reader.read_int_arr
+    puts "Enter divisor:"
+    divisor = @@reader.read_int
+    result = EightImpl.divisible_by(numbers, divisor)
+    puts "Result: #{result}"
+  end
+
   def set_user(user)
     @@user = user
     @require_eight_impl = "./kata/Implementation/#{@@user}/EightImpl.rb"

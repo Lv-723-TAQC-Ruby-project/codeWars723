@@ -34,7 +34,7 @@ class Eightimpl < Eight
   [positives.count, negatives.sum]
  end
 
- def am_I_Wilson(p)
+ def am_i_wilson(p)
   (2..Math.sqrt(p).floor).each do |m|
     if p % m == 0
       return false
