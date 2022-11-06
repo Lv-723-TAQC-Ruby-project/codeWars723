@@ -94,7 +94,7 @@ class TaskRunner
   def new_avg
     require @require_seven_impl
 
-    puts "Enter array length:"
+    puts "Enter array integers:"
     array = @@reader.read_int_arr
 
     puts "Enter average number:"
@@ -129,7 +129,79 @@ class TaskRunner
   end
 
   #Six
-  
+  def find_nb
+    require @require_six_impl
+
+    puts "Enter number:"
+    number = @@reader.read_int
+
+    result = SixImpl.find_nb(number)
+    puts "Result: #{result}"
+  end
+
+  def balance(b)
+    require @require_six_impl
+
+    puts "Enter check book:"
+    str1 = @@reader.read_string
+
+    result = SixImpl.balance(str1)
+    puts "Result: #{result}"
+  end
+
+  def f(x)
+    require @require_six_impl
+
+    puts "Enter float number:"
+    number = @@reader.read_float
+
+    result = SixImpl.f(number)
+    puts "Result: #{result}"
+  end
+
+  def rainfall(town, strng)
+    require @require_six_impl
+
+    puts "Enter town:"
+    str1 = @@reader.read_string
+    puts "Enter data rainfall:"
+    str2 = @@reader.read_string
+
+    mean = SixImpl.mean(str1,str2)
+    variance = SixImpl.variance(str1,str2)
+    puts "Result: mean-#{mean} variance-#{variance}"
+  end
+
+  def nba_cup(result_sheet, to_find)
+    require @require_six_impl
+
+    puts "Enter result sheet:"
+    str1 = @@reader.read_string
+    puts "Enter team:"
+    str2 = @@reader.read_string
+
+    result = SixImpl.nba-cup(str1,str2)
+    puts "Result: #{result}"
+  end
+
+  def stockList(listOfArt, listOfCat)
+    # require @require_six_impl
+
+    #ToDo
+
+    # result = SixImpl.()
+    # puts "Result: #{result}"
+  end
+
+  def artificial_rain(garden)
+    require @require_six_impl
+
+    puts "Enter array integers:"
+    array = @@reader.read_int_arr
+
+    result = SixImpl.artificial_rain(array)
+    puts "Result: #{result}"
+  end
 
   def set_user(user)
     @@user = user
