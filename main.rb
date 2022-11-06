@@ -12,7 +12,13 @@ while i < students.count
   i += 1
 end
 
-runner = TaskRuner.new
+runner = TaskRunner.new
+methods = {
+  1 => runner.method(:litres),
+  2 => runner.method(:run_get_volume_of_cuboid),
+  3 => runner.method(:converter),
+  4 => runner.method(:square_or_square_root)
+}
 
 t = true
 while t
@@ -24,11 +30,6 @@ while t
   end
   runner.set_user(students[student_number - 1])
 
-  methods = {
-    1 => runner.method(:litres),
-    2 => runner.method(:run_get_volume_of_cuboid),
-    3 => runner.method(:converter)
-  }
   puts 'Please, input task number [1-24]: '
   task_number = gets.chomp.to_i
   if task_number < 1 || task_number > 24

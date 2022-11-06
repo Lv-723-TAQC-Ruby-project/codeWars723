@@ -8,6 +8,7 @@ class EightImpl < Eight
 
   # 1. Keep Hydrated!
   def self.litres(time)
+    puts "Bohdan"
     (time * 0.5).to_i
   end
 
