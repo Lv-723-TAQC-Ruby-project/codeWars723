@@ -7,8 +7,12 @@ class TaskRunner
   @@reader = ConsoleReader.new
 
   @require_eight_impl = ''
+  @require_seven_impl = ''
+  @require_six_impl = ''
+  @require_five_impl = ''
+
+  #Eight kata
   def litres
-    # require "./kata/Implementation/#{@@user}/EightImpl.rb"
     require @require_eight_impl
     puts 'time:'
     time = @@reader.read_int
@@ -86,9 +90,53 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
+  #Seven kata
+  def new_avg
+    require @require_seven_impl
+
+    puts "Enter array length:"
+    array = @@reader.read_int_arr
+
+    puts "Enter average number:"
+    number = @@reader.read_int
+
+    result = SevenImpl.new_avg(array, number)
+    puts "Result: #{result}"
+  end
+  
+  def series_sum
+    require @require_seven_impl
+
+    puts "Enter number:"
+    number = @@reader.read_int
+
+    result = SevenImpl.series_sum(number)
+    puts "Result: #{result}"
+  end
+  
+  def where_is_he
+    require @require_seven_impl
+
+    puts "Enter number:"
+    number = @@reader.read_int
+    puts "Enter number:"
+    number2 = @@reader.read_int
+    puts "Enter number:"
+    number3 = @@reader.read_int
+
+    result = SevenImpl.where_is_he(number,number2,number3)
+    puts "Result: #{result}"
+  end
+
+  #Six
+  
+
   def set_user(user)
     @@user = user
     @require_eight_impl = "./kata/Implementation/#{@@user}/EightImpl.rb"
+    @require_seven_impl = "./kata/Implementation/#{@@user}/SevenImpl.rb"
+    @require_six_impl = "./kata/Implementation/#{@@user}/SixImpl.rb"
+    @require_five_impl = "./kata/Implementation/#{@@user}/FiveImpl.rb"
   end
 
   def get_user

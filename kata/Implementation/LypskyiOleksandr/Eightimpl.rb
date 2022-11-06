@@ -51,4 +51,5 @@ class EightImpl < Eight
 
   def self.divisible_by(numbers, divisor)
     numbers.select { |number| (number % divisor).zero? ? number : nil }
+  end
 end

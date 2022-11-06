@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class FivImpl < Five
+require './kata/Five'
+
+class FiveImpl < Five
   def self.is_prime(n)
     (2..Math.sqrt(n).round).each { |i| return false if (n % i).zero? }
     true

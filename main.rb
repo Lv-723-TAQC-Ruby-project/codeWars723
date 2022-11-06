@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require './utils/TaskRuner'
 
 students = Dir["kata/Implementation/*"]
@@ -22,7 +21,10 @@ methods = {
   6 => runner.method(:string_to_number),
   7 => runner.method(:am_I_Wilson),
   8 => runner.method(:two_decimal_places),
-  9 => runner.method(:divisible_by)
+  9 => runner.method(:divisible_by),
+  10 => runner.method(:new_avg),
+  11 => runner.method(:series_sum),
+  12 => runner.method(:where_is_he)
 }
 
 t = true

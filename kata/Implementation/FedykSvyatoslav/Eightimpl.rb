@@ -4,6 +4,7 @@ require './kata/Eight'
 
 class EightImpl < Eight
   def self.litres(time)
+    puts "Lol"
     (time * 0.5).floor
   end
 

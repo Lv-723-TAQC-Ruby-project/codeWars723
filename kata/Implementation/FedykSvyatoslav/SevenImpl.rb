@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './kata/Seven'
+
 class SevenImpl < Seven
   def self.new_avg(arr, newavg)
     donations = (newavg * (arr.size + 1) - arr.sum).ceil
