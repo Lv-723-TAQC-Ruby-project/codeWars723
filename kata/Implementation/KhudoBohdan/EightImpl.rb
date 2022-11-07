@@ -5,10 +5,8 @@ require './kata/Eight'
 GALLON = 4.54609188
 MILE = 1.609344
 class EightImpl < Eight
-
   # 1. Keep Hydrated!
   def self.litres(time)
-    puts "Bohdan"
     (time * 0.5).to_i
   end
 
@@ -53,18 +51,18 @@ class EightImpl < Eight
   end
 
   # 6. Convert a String to a Number
-  def self.string_to_number(s)
-    s.to_i
+  def self.string_to_number(str)
+    str.to_i
   end
 
   # 7. Willson primes
-  def self.am_I_Wilson(p)
-     [5, 13, 563].include?(p)
+  def self.am_I_Wilson(param)
+    [5, 13, 563].include?(param)
   end
 
   # 8. Formatting decimal places
-  def self.two_decimal_places(n)
-    n.round(2)
+  def self.two_decimal_places(num)
+    num.round(2)
   end
 
   # 9. Find numbers which are divisible by given number

@@ -1,82 +1,78 @@
+# frozen_string_literal: true
+
 require './kata/Five'
 require 'prime'
 
 class FiveImpl < Five
-
   # 20. Gap in Primes
-  def self.gap (g, m, n)
+  def self.gap(g_arg, m_arg, n_arg)
     result = []
-    i = m
-    while i <= n - g
-      if Prime.prime? i
-        if Prime.prime? i + g
-          clean_gap = true
-          j = i + 1
-          while j < i + g
-            if Prime.prime? j
-              clean_gap = false
-            end
-            j += 1
-          end
-          if clean_gap
-            result.append(i)
-            result.append(i + g)
-            break
-          end
+    i = m_arg
+    while i <= n_arg - g_arg
+      if Prime.prime?(i) && (Prime.prime? i + g_arg)
+        clean_gap = true
+        j = i + 1
+        while j < i + g_arg
+          clean_gap = false if Prime.prime? j
+          j += 1
+        end
+        if clean_gap
+          result.append(i)
+          result.append(i + g_arg)
+          break
         end
       end
       i += 1
     end
-    if result == []
-      return nil
-    end
-    return result
+    return nil if result == []
+
+    result
   end
 
   # 21. Trailing zeros in factorial
-  def self.zeros(n)
+  def self.zeros(num)
     count = 0
     i = 5
-    while n / i >= 1
-      count += n / i
-      i *=5
+    while num / i >= 1
+      count += num / i
+      i *= 5
     end
-    return count
+    count
   end
 
   # 22. Perimeter of squares in a rectangle
-  def fib(n)
+  def fib(num)
     a = 0
     b = 1
     i = 0
-    while i < n
-      a, b = b, a+b
+    while i < num
+      a, b = b, a + b
       i += 1
     end
     a
   end
 
-  def sum(n)
-    fib(n + 2) - 1
+  def sum(num)
+    fib(num + 2) - 1
   end
 
-  def self.perimeter(n)
-    4 * sum(n + 1)
+  def self.perimeter(num)
+    4 * sum(num + 1)
   end
 
   # 23. Which x for that sum?
-  def self.solve(m)
-    (1 - Math.sqrt(4*m+1)) / (2*m)+1
+  def self.solve(m_arg)
+    (1 - Math.sqrt(4 * m_arg + 1)) / (2 * m_arg) + 1
   end
 
   # 24. Find the smallest
-  def self.smallest(n)
-    min = n
+  def self.smallest(num)
+    min = num
     f = t = i = j = 0
 
-    while i <= n.to_s.size
-      while j <= n.to_s.size
-        arr = n.to_s.chars
+    while i <= num.to_s.size
+      while j <= num.to_s.size
+        arr = num.to_s.chars
         char = arr[i]
         arr.delete_at(i)
         arr.insert(j, char)
@@ -95,5 +91,4 @@ class FiveImpl < Five
 
     [min, f, t]
   end
-
 end
