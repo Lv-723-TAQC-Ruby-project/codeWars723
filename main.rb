@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require './utils/TaskRuner'
+require './utils/TaskRunner'
 
 students = Dir["kata/Implementation/*"]
 students.map { |string| string.slice! "kata/Implementation/"}

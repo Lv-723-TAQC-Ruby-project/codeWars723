@@ -43,7 +43,7 @@ class FiveImpl < Five
     (2 * m + 1 - s) / (2 * m)
   end
 
-  def self.smallest n
+  def self.smallest (n)
     s = n.to_s.each_char.with_index
     s.flat_map do |_, i|
       s.map do |_, j|
