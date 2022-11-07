@@ -1,6 +1,6 @@
 require "./kata/Eight.rb"
 
-class EightImplem < Eight
+class EightImpl < Eight
   def self.litres(time)
     (time * 0.5).floor
   end
@@ -38,6 +38,9 @@ class EightImplem < Eight
 
   def self.string_to_number(s)
     s.to_i
+  end
+  def self.am_I_Wilson(p)
+    (p == 5) || (p == 13) || (p == 563)
   end
 
   def self.two_decimal_places(n)
