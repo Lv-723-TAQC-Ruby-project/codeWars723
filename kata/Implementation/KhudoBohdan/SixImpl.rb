@@ -1,3 +1,4 @@
+require './kata/Six'
 class SixImpl < Six
 
   # 13. Build a pile of Cubes

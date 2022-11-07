@@ -1,3 +1,4 @@
+require './kata/Seven'
 class SevenImpl < Seven
 
   # 10. Looking for a benefactor

@@ -6,11 +6,6 @@ class TaskRunner
   @@user = ''
   @@reader = ConsoleReader.new
 
-  @require_eight_impl = ''
-  @require_seven_impl = ''
-  @require_six_impl = ''
-  @require_five_impl = ''
-
   #Eight kata
   def litres
     require @require_eight_impl
