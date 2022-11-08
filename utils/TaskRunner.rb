@@ -8,7 +8,6 @@ class TaskRunner
 
   #Eight kata
   def litres
-    require @require_eight_impl
     puts 'time:'
     time = @@reader.read_int
     result = EightImpl.litres(time)
@@ -16,7 +15,6 @@ class TaskRunner
   end
 
   def run_get_volume_of_cuboid
-    require @require_eight_impl
     puts 'length:'
     length = @@reader.read_int
     puts 'width:'
@@ -28,7 +26,6 @@ class TaskRunner
   end
 
   def converter
-    require @require_eight_impl
     puts 'Enter miles per imperial gallon: '
     mpg = @@reader.read_float
     result = EightImpl.converter(mpg)
@@ -36,7 +33,6 @@ class TaskRunner
   end
 
   def square_or_square_root
-    require @require_eight_impl
     puts 'Enter array of integers:'
     arr = @@reader.read_int_arr
     result = EightImpl.square_or_square_root(arr)
@@ -44,7 +40,6 @@ class TaskRunner
   end
 
   def count_positives_sum_negatives
-    require @require_eight_impl
     puts 'Enter array of integers:'
     arr = @@reader.read_int_arr
     result = EightImpl.count_positives_sum_negatives(arr)
@@ -52,7 +47,6 @@ class TaskRunner
   end
 
   def string_to_number
-    require @require_eight_impl
     puts 'Enter number as string:'
     str = @@reader.read_string
     result = EightImpl.string_to_number(str)
@@ -60,7 +54,6 @@ class TaskRunner
   end
 
   def am_I_Wilson
-    require @require_eight_impl
     puts 'Enter number:'
     number = @@reader.read_int
     result = EightImpl.am_I_Wilson(number)
@@ -68,7 +61,6 @@ class TaskRunner
   end
 
   def two_decimal_places
-    require @require_eight_impl
     puts 'Enter float number:'
     number = @@reader.read_float
     result = EightImpl.two_decimal_places(number)
@@ -76,7 +68,6 @@ class TaskRunner
   end
 
   def divisible_by
-    require @require_eight_impl
     puts 'Enter numbers:'
     numbers = @@reader.read_int_arr
     puts 'Enter divisor:'
@@ -87,11 +78,8 @@ class TaskRunner
 
   #Seven kata
   def new_avg
-    require @require_seven_impl
-
     puts 'Enter array integers:'
     array = @@reader.read_int_arr
-
     puts 'Enter average number:'
     number = @@reader.read_int
 
@@ -100,8 +88,6 @@ class TaskRunner
   end
 
   def series_sum
-    require @require_seven_impl
-
     puts 'Enter number:'
     number = @@reader.read_int
 
@@ -110,8 +96,6 @@ class TaskRunner
   end
 
   def where_is_he
-    require @require_seven_impl
-
     puts 'Enter number:'
     number = @@reader.read_int
     puts 'Enter number:'
@@ -125,8 +109,6 @@ class TaskRunner
 
   #Six
   def find_nb
-    require @require_six_impl
-
     puts 'Enter number:'
     number = @@reader.read_int
 
@@ -135,8 +117,6 @@ class TaskRunner
   end
 
   def balance(b)
-    require @require_six_impl
-
     puts 'Enter check book:'
     str1 = @@reader.read_string
 
@@ -145,8 +125,6 @@ class TaskRunner
   end
 
   def f(x)
-    require @require_six_impl
-
     puts 'Enter float number:'
     number = @@reader.read_float
 
@@ -155,8 +133,6 @@ class TaskRunner
   end
 
   def rainfall(town, strng)
-    require @require_six_impl
-
     puts 'Enter town:'
     str1 = @@reader.read_string
     puts 'Enter data rainfall:'
@@ -168,8 +144,6 @@ class TaskRunner
   end
 
   def nba_cup(result_sheet, to_find)
-    require @require_six_impl
-
     puts 'Enter result sheet:'
     str1 = @@reader.read_string
     puts 'Enter team:'
@@ -189,8 +163,6 @@ class TaskRunner
   end
 
   def artificial_rain(garden)
-    require @require_six_impl
-
     puts 'Enter array integers:'
     array = @@reader.read_int_arr
 
@@ -201,8 +173,6 @@ class TaskRunner
   #FiveKata
 
   def is_prime
-    # require @require_five_impl
-    #
     # puts 'Enter an integer number:'
     # number = @@reader.read_int
     #
@@ -210,15 +180,11 @@ class TaskRunner
     # puts "Result: #{result}"
   end
   def gap
-    # require @require_five_impl
-
     # result = FiveImpl.gap(number)
     # puts "Result: #{result}"
   end
 
   def zeros
-    require @require_five_impl
-
     puts 'Enter an integer number:'
     number = @@reader.read_int
 
@@ -227,8 +193,6 @@ class TaskRunner
   end
 
   def perimeter
-    require @require_five_impl
-
     puts 'Enter the number of squares:'
     number = @@reader.read_int
 
@@ -237,8 +201,6 @@ class TaskRunner
   end
 
   def solve
-    require @require_five_impl
-
     puts 'Enter the number:'
     number = @@reader.read_int
 
@@ -247,8 +209,6 @@ class TaskRunner
   end
 
   def smallest
-    require @require_five_impl
-
     puts 'Enter a positive number:'
     number = @@reader.read_int
 
@@ -258,10 +218,7 @@ class TaskRunner
 
   def set_user(user)
     @@user = user
-    @require_eight_impl = "./kata/Implementation/#{@@user}/EightImpl.rb"
-    @require_seven_impl = "./kata/Implementation/#{@@user}/SevenImpl.rb"
-    @require_six_impl = "./kata/Implementation/#{@@user}/SixImpl.rb"
-    @require_five_impl = "./kata/Implementation/#{@@user}/FiveImpl.rb"
+    @require = Dir["./kata/Implementation/#{@@user}/*.rb"].each {|file| require file }
   end
 
   def get_user
