@@ -4,13 +4,6 @@ require './utils/TaskRunner'
 students = Dir["kata/Implementation/*"]
 students.map { |string| string.slice! "kata/Implementation/"}
 
-puts 'Students:'
-i = 0
-while i < students.count
-  puts "#{i + 1}. #{students[i]}"
-  i += 1
-end
-
 runner = TaskRunner.new
 methods = {
   1 => runner.method(:litres),
@@ -41,6 +34,14 @@ methods = {
 
 t = true
 while t
+  system("cls")
+  puts 'Students:'
+  i = 0
+  while i < students.count
+    puts "#{i + 1}. #{students[i]}"
+    i += 1
+  end
+
   puts 'Please, input student number [1-9]:'
   student_number = gets.chomp.to_i
   if student_number < 1 || student_number > 9
@@ -49,6 +50,7 @@ while t
   end
   runner.set_user(students[student_number - 1])
 
+  system("cls")
   puts 'Please, input task number [1-24]: '
   task_number = gets.chomp.to_i
   if task_number < 1 || task_number > 24
