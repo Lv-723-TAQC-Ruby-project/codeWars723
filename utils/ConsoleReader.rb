@@ -30,7 +30,7 @@ class ConsoleReader
   end
 
   def read_int_arr
-    puts "Enter array count:"
+    puts 'Enter array count:'
     count = read_int
     arr = Array.new(count)
     i = 0

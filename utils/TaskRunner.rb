@@ -6,7 +6,7 @@ class TaskRunner
   @@user = ''
   @@reader = ConsoleReader.new
 
-  #Eight kata
+  # Eight kata
   def litres
     puts 'time:'
     time = @@reader.read_int
@@ -76,7 +76,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  #Seven kata
+  # Seven kata
   def new_avg
     puts 'Enter array integers:'
     array = @@reader.read_int_arr
@@ -103,11 +103,11 @@ class TaskRunner
     puts 'Enter number:'
     number3 = @@reader.read_int
 
-    result = SevenImpl.where_is_he(number,number2,number3)
+    result = SevenImpl.where_is_he(number, number2, number3)
     puts "Result: #{result}"
   end
 
-  #Six
+  # Six
   def find_nb
     puts 'Enter number:'
     number = @@reader.read_int
@@ -116,7 +116,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def balance(b)
+  def balance(_b)
     puts 'Enter check book:'
     str1 = @@reader.read_string
 
@@ -124,7 +124,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def f(x)
+  def f(_x)
     puts 'Enter float number:'
     number = @@reader.read_float
 
@@ -132,37 +132,37 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def rainfall(town, strng)
+  def rainfall(_town, _strng)
     puts 'Enter town:'
     str1 = @@reader.read_string
     puts 'Enter data rainfall:'
     str2 = @@reader.read_string
 
-    mean = SixImpl.mean(str1,str2)
-    variance = SixImpl.variance(str1,str2)
+    mean = SixImpl.mean(str1, str2)
+    variance = SixImpl.variance(str1, str2)
     puts "Result: mean-#{mean} variance-#{variance}"
   end
 
-  def nba_cup(result_sheet, to_find)
+  def nba_cup(_result_sheet, _to_find)
     puts 'Enter result sheet:'
     str1 = @@reader.read_string
     puts 'Enter team:'
     str2 = @@reader.read_string
 
-    result = SixImpl.nba-cup(str1,str2)
+    result = SixImpl.nba - cup(str1, str2)
     puts "Result: #{result}"
   end
 
   def stockList(listOfArt, listOfCat)
     # require @require_six_impl
 
-    #ToDo
+    # ToDo
 
     # result = SixImpl.()
     # puts "Result: #{result}"
   end
 
-  def artificial_rain(garden)
+  def artificial_rain(_garden)
     puts 'Enter array integers:'
     array = @@reader.read_int_arr
 
@@ -170,7 +170,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  #FiveKata
+  # FiveKata
 
   def is_prime
     # puts 'Enter an integer number:'
@@ -179,6 +179,7 @@ class TaskRunner
     # result = FiveImpl.is_prime(number)
     # puts "Result: #{result}"
   end
+
   def gap
     # result = FiveImpl.gap(number)
     # puts "Result: #{result}"
@@ -218,7 +219,7 @@ class TaskRunner
 
   def set_user(user)
     @@user = user
-    @require = Dir["./kata/Implementation/#{@@user}/*.rb"].each {|file| require file }
+    @require = Dir["./kata/Implementation/#{@@user}/*.rb"].sort.each { |file| require file }
   end
 
   def get_user

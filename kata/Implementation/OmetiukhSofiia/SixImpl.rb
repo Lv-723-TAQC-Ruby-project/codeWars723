@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require './kata/Six'
 
 class SixImpl < Six
- 
   def self.find_nb(m)
     total = 1
     n = 1
@@ -13,15 +14,17 @@ class SixImpl < Six
   end
 
   def self.balance(b)
-    b = b.gsub(/[^a-z0-9\s\.]/i, '').gsub(/(\n)(\n*)/, '\1').gsub(/(\d+\.\d+)$/) {'%.2f' % $1}
+    b = b.gsub(/[^a-z0-9\s.]/i, '').gsub(/(\n)(\n*)/, '\1').gsub(/(\d+\.\d+)$/) { '%.2f' % ::Regexp.last_match(1) }
     ns = b.scan(/\d+\.\d+$/)
-    ns.map!.with_index {|n,i| i == 0 ? n : '%.2f' % ns[i-1].to_f.send('-', ns[i].to_f)}
-    c = b.split("\n").map.with_index {|l,i| i == 0 ? "Original Balance: #{l}" : "#{l} Balance #{ns[i]}"}.join("\r\n")
-    e = b.scan(/\d+\.\d+$/)[1..-1].map(&:to_f)
-    "#{c}\r\nTotal expense  #{"%.2f" % e.sum}\r\nAverage expense  #{"%.2f" % (e.sum / e.size)}"
+    ns.map!.with_index { |n, i| i.zero? ? n : '%.2f' % ns[i - 1].to_f.send('-', ns[i].to_f) }
+    c = b.split("\n").map.with_index do |l, i|
+      i.zero? ? "Original Balance: #{l}" : "#{l} Balance #{ns[i]}"
+    end.join("\r\n")
+    e = b.scan(/\d+\.\d+$/)[1..].map(&:to_f)
+    "#{c}\r\nTotal expense  #{'%.2f' % e.sum}\r\nAverage expense  #{format('%.2f', (e.sum / e.size))}"
   end
 
-  def self.f (x)
+  def self.f(x)
     x / (1 + Math.sqrt(1 + x))
   end
 
@@ -36,7 +39,7 @@ class SixImpl < Six
       end
       result << "(#{cat_item} : #{total})"
     end
-    result.join (' - ')
+    result.join(' - ')
   end
 
   def self.artificial_rain(garden)

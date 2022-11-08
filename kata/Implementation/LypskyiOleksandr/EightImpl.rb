@@ -3,7 +3,6 @@
 require './kata/Eight'
 
 class EightImpl < Eight
-
   # 1. Keep Hydrated!
   def self.litres(time)
     (time * 0.5).floor
@@ -23,8 +22,8 @@ class EightImpl < Eight
   def self.square_or_square_root(arr)
     square_or_square_root_list = []
     arr.each do |i|
-    i_sqrt = Math.sqrt(i)
-    i_sqrt == i_sqrt.floor ? square_or_square_root_list.append(i_sqrt.floor) : square_or_square_root_list.append(i * i)
+      i_sqrt = Math.sqrt(i)
+      i_sqrt == i_sqrt.floor ? square_or_square_root_list.append(i_sqrt.floor) : square_or_square_root_list.append(i * i)
     end
     square_or_square_root_list
   end

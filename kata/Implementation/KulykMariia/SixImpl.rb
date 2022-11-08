@@ -8,7 +8,7 @@ class SixImpl < Six
     sum = 1
     while sum.to_f < m.to_f
       n += 1
-      sum += n ** 3
+      sum += n**3
     end
     sum == m ? n : -1
   end

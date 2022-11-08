@@ -3,7 +3,6 @@
 require './kata/Five'
 
 class FiveImpl < Five
-
   def self.gap(g, m, n)
     numbers = m.upto(n - 1).select(&:odd?)
     pair = nil
@@ -46,7 +45,7 @@ class FiveImpl < Five
     (2 * m + 1 - s) / (2 * m)
   end
 
-  def self.smallest (n)
+  def self.smallest(n)
     s = n.to_s.each_char.with_index
     s.flat_map do |_, i|
       s.map do |_, j|

@@ -1,4 +1,6 @@
-require "./kata/Eight.rb"
+# frozen_string_literal: true
+
+require './kata/Eight'
 
 class EightImpl < Eight
   def self.litres(time)
@@ -10,35 +12,35 @@ class EightImpl < Eight
   end
 
   def self.converter(mpg)
-    output = (mpg * 1.609344/4.54609188).round(2)
-    return output
+    (mpg * 1.609344 / 4.54609188).round(2)
   end
 
   def self.square_or_square_root(arr)
     arr.map do |i|
       sqrt = Math.sqrt(i)
-      sqrt % 1 == 0 ? sqrt : i**2
+      (sqrt % 1).zero? ? sqrt : i**2
     end
   end
 
-  def self.count_positives_sum_negatives(lst)
-    if sum == []
-      return sum
-    end
+  def self.count_positives_sum_negatives(_lst)
+    return sum if sum == []
+
     count = [0, 0]
-    for i in sum
-      if i > 0
+    sum.each do |i|
+      if i.positive?
         count[0] += 1
-      else i < 0
-      count[1] += i
+      else
+        i.negative?
+        count[1] += i
       end
     end
-    return count
+    count
   end
 
   def self.string_to_number(s)
     s.to_i
   end
+
   def self.am_I_Wilson(p)
     (p == 5) || (p == 13) || (p == 563)
   end
@@ -49,12 +51,9 @@ class EightImpl < Eight
 
   def self.divisible_by(numbers, divisor)
     result = []
-    for n in numbers
-      if n % divisor == 0
-        result.append(n)
-      end
+    numbers.each do |n|
+      result.append(n) if (n % divisor).zero?
     end
-    return result
+    result
   end
-
 end

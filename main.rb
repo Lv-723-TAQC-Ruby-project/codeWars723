@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 require './utils/TaskRunner'
 
-students = Dir["kata/Implementation/*"]
-students.map { |string| string.slice! "kata/Implementation/"}
+students = Dir['kata/Implementation/*']
+students.map { |string| string.slice! 'kata/Implementation/' }
 
 runner = TaskRunner.new
 methods = {
@@ -34,7 +35,7 @@ methods = {
 
 t = true
 while t
-  system("cls")
+  system('cls')
   puts 'Students:'
   i = 0
   while i < students.count
@@ -50,7 +51,7 @@ while t
   end
   runner.set_user(students[student_number - 1])
 
-  system("cls")
+  system('cls')
   puts 'Please, input task number [1-24]: '
   task_number = gets.chomp.to_i
   if task_number < 1 || task_number > 24
@@ -62,5 +63,5 @@ while t
 
   puts 'Do you want to pick new student? true/false'
   t = gets.chomp
-  t = t == 'true' || t == 't'
+  t = %w[true t].include?(t)
 end
