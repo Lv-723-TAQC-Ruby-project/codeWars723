@@ -24,7 +24,19 @@ methods = {
   9 => runner.method(:divisible_by),
   10 => runner.method(:new_avg),
   11 => runner.method(:series_sum),
-  12 => runner.method(:where_is_he)
+  12 => runner.method(:where_is_he),
+  13 => runner.method(:find_nb),
+  14 => runner.method(:balance),
+  15 => runner.method(:f),
+  16 => runner.method(:rainfall),
+  17 => runner.method(:nba_cup),
+  18 => runner.method(:stockList),
+  19 => runner.method(:artificial_rain),
+  20 => runner.method(:is_prime),
+  21 => runner.method(:gap),
+  22 => runner.method(:zeros),
+  23 => runner.method(:solve),
+  24 => runner.method(:smallest)
 }
 
 t = true
