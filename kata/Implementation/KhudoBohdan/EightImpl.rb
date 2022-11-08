@@ -4,6 +4,7 @@ require './kata/Eight'
 
 GALLON = 4.54609188
 MILE = 1.609344
+module KhudoBohdanEightImpl
 class EightImpl < Eight
   # 1. Keep Hydrated!
   def self.litres(time)
@@ -73,4 +74,5 @@ class EightImpl < Eight
     end
     result
   end
+end
 end

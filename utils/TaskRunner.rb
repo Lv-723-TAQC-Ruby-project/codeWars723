@@ -1,16 +1,16 @@
 # frozen_string_literal: true
-
+require './kata/Implementation/Implementation.rb'
 require './utils/ConsoleReader'
 
 class TaskRunner
-  @user = ''
+  @@user = Implementation
   @@reader = ConsoleReader.new
 
   # Eight kata
   def litres
     puts 'time:'
     time = @@reader.read_int
-    result = EightImpl.litres(time)
+    result = @@user::EightImpl.litres(time)
     puts "Result: #{result}"
   end
 
@@ -218,8 +218,7 @@ class TaskRunner
   end
 
   def set_user(user)
-    @user = user
-    @require = Dir["./kata/Implementation/#{@@user}/*.rb"].sort.each { |file| require file }
+    @@user = user
   end
 
   def get_user
