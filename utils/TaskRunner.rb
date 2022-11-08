@@ -3,7 +3,7 @@
 require './utils/ConsoleReader'
 
 class TaskRunner
-  @@user = ''
+  @user = ''
   @@reader = ConsoleReader.new
 
   # Eight kata
@@ -116,7 +116,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def balance(_b)
+  def balance
     puts 'Enter check book:'
     str1 = @@reader.read_string
 
@@ -124,7 +124,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def f(_x)
+  def f
     puts 'Enter float number:'
     number = @@reader.read_float
 
@@ -132,7 +132,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def rainfall(_town, _strng)
+  def rainfall
     puts 'Enter town:'
     str1 = @@reader.read_string
     puts 'Enter data rainfall:'
@@ -143,7 +143,7 @@ class TaskRunner
     puts "Result: mean-#{mean} variance-#{variance}"
   end
 
-  def nba_cup(_result_sheet, _to_find)
+  def nba_cup
     puts 'Enter result sheet:'
     str1 = @@reader.read_string
     puts 'Enter team:'
@@ -153,7 +153,7 @@ class TaskRunner
     puts "Result: #{result}"
   end
 
-  def stockList(listOfArt, listOfCat)
+  def stockList
     # require @require_six_impl
 
     # ToDo
@@ -162,7 +162,7 @@ class TaskRunner
     # puts "Result: #{result}"
   end
 
-  def artificial_rain(_garden)
+  def artificial_rain
     puts 'Enter array integers:'
     array = @@reader.read_int_arr
 
@@ -218,11 +218,11 @@ class TaskRunner
   end
 
   def set_user(user)
-    @@user = user
+    @user = user
     @require = Dir["./kata/Implementation/#{@@user}/*.rb"].sort.each { |file| require file }
   end
 
   def get_user
-    @@user
+    @user
   end
 end
