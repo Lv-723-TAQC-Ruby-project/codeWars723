@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require './kata/Six'
+
 class SixImpl < Six
 
   def self.find_nb(m)

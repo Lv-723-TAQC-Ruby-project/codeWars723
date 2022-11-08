@@ -1,3 +1,5 @@
+require './kata/Eight'
+
 class Eightimpl<Eight
 
   def self.converter(mpg)

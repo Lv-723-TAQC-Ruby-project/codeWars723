@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require './kata/Eight'
+
 class Eightimpl < Eight
 
   def littres(time)

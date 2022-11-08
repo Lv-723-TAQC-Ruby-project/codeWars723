@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './kata/Seven'
+
 class SevenImpl < Seven
   def self.new_avg(arr, newavg)
     result = (arr.length + 1) * newavg - arr.reduce(0) { |sum, n| sum + n }

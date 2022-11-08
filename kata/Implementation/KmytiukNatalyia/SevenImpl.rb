@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require './kata/Seven'
+
 class SevenImpl < Seven
   def new_avg(arr, newavg)
     if (arr == []) then i = 0  else i = arr.inject{ |sum,x| sum + x }

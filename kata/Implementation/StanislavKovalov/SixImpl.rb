@@ -1,3 +1,5 @@
+require './kata/Six'
+
 class SixImpl < Six
   def self.find_nb(m)
     n = 1

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './kata/Eight'
+
 class EightImpl < Eight
   def self.litres(time)
     time / 2.floor

@@ -1,3 +1,5 @@
+require './kata/Seven'
+
 class SevenImpl <Seven
   def self.new_avg (arr, newavg)
     d = newavg * (arr.size + 1) - arr.sum

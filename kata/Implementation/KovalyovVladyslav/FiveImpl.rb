@@ -1,4 +1,8 @@
-class FiveImpl < Fiv
+# frozen_string_literal: true
+
+require './kata/Five'
+
+class FiveImpl < Five
 
   def self.gap(g, m, n)
     last_prime = nil

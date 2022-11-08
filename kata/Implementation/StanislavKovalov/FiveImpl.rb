@@ -1,3 +1,5 @@
+require './kata/Five'
+
 class FiveImpl <Five
 
   require 'prime'
