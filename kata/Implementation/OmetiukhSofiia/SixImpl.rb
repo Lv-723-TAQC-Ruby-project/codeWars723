@@ -28,6 +28,65 @@ class SixImpl < Six
     x / (1 + Math.sqrt(1 + x))
   end
 
+  def self.mean(town, strng)
+    mine_numbers(town, strng) do |value|
+      value.reduce(:+) / value.size
+    end
+  end
+
+  def self.variance(town, strng)
+    mine_numbers(town, strng) do |value|
+      temp = mean(town,strng)
+      value.map { |fall| (fall - temp)**2 }.reduce(:+) / value.size
+    end
+  end
+  def self.mine_numbers( town, strng )
+    no_records_answer = -1
+
+    town_data = strng.split( "\n" )
+    value = town_data.select { |record| record.split(':').shift == town }.join
+    return no_records_answer if value.empty?
+
+    yield value.scan(/\d+\.\d+/)
+               .map(&:to_f)
+  end
+
+  def self.nba_cup(result_sheet, to_find)
+    return '' if to_find == ''
+    return format("%s:This team didn't play!", to_find) unless result_sheet.match(/#{to_find}\s/)
+
+    matchs_res = result_sheet.split(',')
+
+    win = 0
+    lose = 0
+    draw = 0
+    scored = 0
+    conceded = 0
+
+    matchs_res.each do |match|
+      next unless match.include? to_find
+
+      puts match
+      data = "#{match} ".scan(/[A-z 76]*. \d* /)
+      puts data
+      data = data.reverse unless data[0].include? to_find
+
+      return "Error(float number):#{match}" if data.length != 2
+
+      score_first = data[0].scan(/ \d* /)[0].to_i
+      score_second = data[1].scan(/ \d* /)[0].to_i
+
+      scored += score_first
+      conceded += score_second
+      win += 1 if score_first > score_second
+      lose += 1 if score_first < score_second
+      draw += 1 if score_first == score_second
+    end
+
+    format('%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d', to_find, win, draw, lose, scored, conceded,
+           (win * 3 + draw))
+  end
+
   def self.stockList(listOfArt, listOfCat)
     return '' if listOfArt.empty?
 
