@@ -2,5 +2,8 @@
 
 require './kata/Five'
 
-class FiveImpl < Five
+module KulykMariiaFiveImpl
+  class FiveImpl < Five
+  end
+
 end
