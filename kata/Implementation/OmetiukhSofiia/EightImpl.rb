@@ -2,6 +2,7 @@
 
 require './kata/Eight'
 
+module OmetiukhSofiiaEightImpl
 class EightImpl < Eight
   def self.litres(time)
     time / 2.floor
@@ -46,4 +47,5 @@ class EightImpl < Eight
   def self.divisible_by(numbers, divisor)
     numbers.select { |n| (n % divisor).zero? }
   end
+end
 end

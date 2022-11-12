@@ -2,6 +2,7 @@
 
 require './kata/Six'
 
+module OmetiukhSofiiaSixImpl
 class SixImpl < Six
   def self.find_nb(m)
     total = 1
@@ -57,4 +58,5 @@ class SixImpl < Six
     end
     [max, cur_size].max
   end
+end
 end

@@ -2,14 +2,15 @@
 
 require './kata/Five'
 
+module OmetiukhSofiiaFiveImpl
 class FiveImpl < Five
   def self.gap(g, m, n)
     numbers = m.upto(n - 1).select(&:odd?)
     pair = nil
     numbers.each do |number|
-      next unless is_prime?(number)
+      next unless is_prime(number)
 
-      if is_prime?(number + g) && (number + 1).upto(number + g - 1).none? { |b| is_prime?(b) }
+      if is_prime(number + g) && (number + 1).upto(number + g - 1).none? { |b| is_prime(b) }
         pair = [number, number + g]
         break
       end
@@ -17,7 +18,7 @@ class FiveImpl < Five
     pair
   end
 
-  def self.is_prime?(number)
+  def self.is_prime(number)
     return false if number <= 1
 
     (2..Math.sqrt(number)).each { |i| return false if (number % i).zero? }
@@ -54,4 +55,5 @@ class FiveImpl < Five
       end
     end.min
   end
+end
 end
