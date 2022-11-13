@@ -65,9 +65,66 @@ module BrylAndriiSixImpl
     end
 
     #Rainfall
-    def mean(town, strng) end
+    #not fully working
+    def mean(town, strng)
+      if town == ""
+        return -1
+      end
+      if strng == ""
+        return -1
+      end
+      if strng.include? town
+        data = strng.split("\n")
+        data.each do |x|
+          if x.include? town
+            x = x.split(":")
+            x = x[1]
+            x = x.split(",")
+            sum = 0
+            x.each do |y|
+              y = y.split(" ")
+              sum += y[1].to_f
+            end
+            return (sum / x.length).round(2)
+          end
+        end
+      else
+        return -1
+      end
+    end
 
-    def variance(town, strng) end
+    def variance(town, strng)
+      if town == ""
+        return -1
+      end
+      if strng == ""
+        return -1
+      end
+      if strng.include? town
+        data = strng.split("\n")
+        data.each do |x|
+          if x.include? town
+            x = x.split(":")
+            x = x[1]
+            x = x.split(",")
+            sum = 0
+            x.each do |y|
+              y = y.split(" ")
+              sum += y[1].to_f
+            end
+            mean = sum / x.length
+            sum = 0
+            x.each do |y|
+              y = y.split(" ")
+              sum += (y[1].to_f - mean) ** 2
+            end
+            return (sum / x.length).round(2)
+          end
+        end
+      else
+        return -1
+      end
+    end
 
     #Ranking NBA teams
     def nba_cup(result_sheet, to_find) end
