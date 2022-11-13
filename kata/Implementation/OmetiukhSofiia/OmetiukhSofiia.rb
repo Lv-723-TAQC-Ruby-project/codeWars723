@@ -5,7 +5,7 @@ require './kata/Implementation/OmetiukhSofiia/SevenImpl'
 require './kata/Implementation/OmetiukhSofiia/SixImpl'
 require './kata/Implementation/OmetiukhSofiia/FiveImpl'
 
-module OmetiukhSofiia
+module OmetiukhSofiiaKata
   include OmetiukhSofiiaEightImpl
   include OmetiukhSofiiaSevenImpl
   include OmetiukhSofiiaSixImpl

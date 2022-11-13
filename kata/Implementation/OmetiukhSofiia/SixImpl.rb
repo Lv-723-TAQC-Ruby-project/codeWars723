@@ -29,10 +29,8 @@ module OmetiukhSofiiaSixImpl
       x / (1 + Math.sqrt(1 + x))
     end
 
-<<<<<<< HEAD
-    def self.stockList(listOfArt, listOfCat)
-      return '' if listOfArt.empty?
-=======
+
+
   def self.mean(town, strng)
     mine_numbers(town, strng) do |value|
       value.reduce(:+) / value.size
@@ -94,8 +92,6 @@ module OmetiukhSofiiaSixImpl
 
   def self.stockList(listOfArt, listOfCat)
     return '' if listOfArt.empty?
->>>>>>> d8ade946df8db874a94c81e5ae10c0d4614e1599
-
       result = []
       listOfCat.map do |cat_item|
         total = 0

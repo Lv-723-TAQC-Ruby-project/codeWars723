@@ -174,28 +174,18 @@ class TaskRunner
 
   # FiveKata
 
-<<<<<<< HEAD
   def is_prime
     # puts 'Enter an integer number:'
     # number = @@reader.read_int
     #
-    # result = @user::FiveImpl.is_prime(number)
+    # result = FiveImpl.is_prime(number)
     # puts "Result: #{result}"
   end
 
   def gap
-    # result = @user::FiveImpl.gap(number)
+    # result = FiveImpl.gap(number)
     # puts "Result: #{result}"
   end
-=======
-  # def is_prime
-  #
-  # end
-  #
-  # def gap
-  #
-  # end
->>>>>>> d8ade946df8db874a94c81e5ae10c0d4614e1599
 
   def zeros
     puts 'Enter an integer number:'

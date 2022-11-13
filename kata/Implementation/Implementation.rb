@@ -6,6 +6,7 @@ require './kata/Implementation/KmytiukNatalyia/KmytiukNatalyia.rb'
 require './kata/Implementation/KovalyovVladyslav/KovalyovVladyslav.rb'
 require './kata/Implementation/KulykMariia/KulykMariia.rb'
 #require './kata/Implementation/LypskyiOleksandr/LypskyiOleksandr.rb'
+require './kata/Implementation/OmetiukhSofiia/OmetiukhSofiia.rb'
 
 module Implementation
   module FedykSvyatoslav
@@ -33,7 +34,7 @@ module Implementation
   end
 
   module OmetiukhSofiia
-    
+    include OmetiukhSofiiaKata
   end
 
   module StanislavKovalov
