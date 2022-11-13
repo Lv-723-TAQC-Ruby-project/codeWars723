@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 require './kata/Seven'
 
 class SevenImpl < Seven
   def self.series_sum(n)
     sum = 0
-    if n == 0
-      return "0.00"
-    else
-      for i in 1..n
-        sum += 1.0 / (1 + (3 * (i - 1)))
-      end
+    return '0.00' if n.zero?
+
+    (1..n).each do |i|
+      sum += 1.0 / (1 + (3 * (i - 1)))
     end
-    return "%.2f" % sum.to_s
+
+    '%.2f' % sum.to_s
   end
 
   def self.where_is_he(p, bef, aft)

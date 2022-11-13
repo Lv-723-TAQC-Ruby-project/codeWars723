@@ -6,12 +6,12 @@ class SixImpl < Six
   def find_nb(m)
     n = 0
     loop do
-      if m > 0
+      if m.positive?
         cur_cube_vol = (n + 1)**3
         m -= cur_cube_vol
-      elsif m == 0
+      elsif m.zero?
         return n
-      elsif m < 0
+      elsif m.negative?
         return -1
       end
       n += 1
@@ -32,7 +32,7 @@ class SixImpl < Six
 
     res = res.each_with_index.map do |string, i|
       string = string.gsub(/\d+\.\d+/, '')
-      data = "#{format('%.2f', (balance - inputs[i]))}"
+      data = format('%.2f', (balance - inputs[i])).to_s
       balance -= inputs[i]
       string + "#{'%.2f' % inputs[i]} Balance #{data}"
     end

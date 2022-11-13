@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require './kata/Eight'
 
 class EightImpl < Eight
-
   def self.litres(time)
     litres = time / 2
     litres.floor
@@ -19,20 +20,20 @@ class EightImpl < Eight
   def self.square_or_square_root(arr)
     new_arr = []
     arr.each do |num|
-      if (Math.sqrt(num) % 1) == 0
-        new_arr << Math.sqrt(num).to_i
-      else
-        new_arr << (num * num)
-      end
+      new_arr << if (Math.sqrt(num) % 1).zero?
+                   Math.sqrt(num).to_i
+                 else
+                   (num * num)
+                 end
     end
-    return new_arr
+    new_arr
   end
 
   def self.count_positives_sum_negatives(lst)
     if lst == []
-      return []
+      []
     else
-      [lst.count { |n| n > 0 }, lst.select { |n| n < 0 }.reduce(0, :+)]
+      [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
     end
   end
 
@@ -41,10 +42,10 @@ class EightImpl < Eight
   end
 
   def self.am_I_Wilson(p)
-    if p == 5 or p == 13 or p == 563
-      return true
+    if (p == 5) || (p == 13) || (p == 563)
+      true
     else
-      return false
+      false
     end
   end
 
@@ -56,11 +57,8 @@ class EightImpl < Eight
     arr = []
     numbers.each do |i|
       is_div = i % divisor
-      if is_div == 0
-        arr << i
-      else
-      end
+      arr << i if is_div.zero?
     end
-    return arr
+    arr
   end
 end

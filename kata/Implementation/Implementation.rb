@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-require './kata/Implementation/FedykSvyatoslav/FedykSvyatoslav.rb'
-require './kata/Implementation/KhudoBohdan/KhudoBohdan.rb'
-require './kata/Implementation/KmytiukNatalyia/KmytiukNatalyia.rb'
-require './kata/Implementation/KovalyovVladyslav/KovalyovVladyslav.rb'
-require './kata/Implementation/KulykMariia/KulykMariia.rb'
-#require './kata/Implementation/LypskyiOleksandr/LypskyiOleksandr.rb'
-require './kata/Implementation/OmetiukhSofiia/OmetiukhSofiia.rb'
+require './kata/Implementation/FedykSvyatoslav/FedykSvyatoslav'
+require './kata/Implementation/KhudoBohdan/KhudoBohdan'
+require './kata/Implementation/KmytiukNatalyia/KmytiukNatalyia'
+require './kata/Implementation/KovalyovVladyslav/KovalyovVladyslav'
+require './kata/Implementation/KulykMariia/KulykMariia'
+# require './kata/Implementation/LypskyiOleksandr/LypskyiOleksandr.rb'
+require './kata/Implementation/OmetiukhSofiia/OmetiukhSofiia'
+require './kata/Implementation/StanislavKovalov/StanislavKovalov'
 
 module Implementation
   module FedykSvyatoslav
@@ -30,7 +31,7 @@ module Implementation
   end
 
   module LypskyiOleksandr
-    #include LypskyiOleksandrKata
+    # include LypskyiOleksandrKata
   end
 
   module OmetiukhSofiia
@@ -38,5 +39,6 @@ module Implementation
   end
 
   module StanislavKovalov
+    include StanislavKovalovKata
   end
 end

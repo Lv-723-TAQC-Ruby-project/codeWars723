@@ -38,6 +38,4 @@ module KulykMariiaSixImpl
       x.to_f / (1 + Math.sqrt(1 + x.to_f))
     end
   end
-
-
 end
