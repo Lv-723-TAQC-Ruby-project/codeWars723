@@ -2,6 +2,7 @@
 
 require './kata/Five'
 
+module KmytiukNatalyiaFiveImpl
 class FiveImpl < Five
   def gap(g, m, n)
     m += 1 if m.even?
@@ -61,4 +62,5 @@ def smallest(n)
     ind = n_arr.each_index.select { |i| n_arr[i] == n_arr.min }.max
   end
   lowest = n_arr[ind]
+end
 end

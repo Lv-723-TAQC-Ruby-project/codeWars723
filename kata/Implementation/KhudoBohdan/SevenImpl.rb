@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Seven'
+module KhudoBohdanSevenImpl
 class SevenImpl < Seven
   # 10. Looking for a benefactor
   def self.new_avg(arr, new_avg)
@@ -31,4 +32,5 @@ class SevenImpl < Seven
     vasya += 1 while all - vasya > aft
     all - vasya + 1
   end
+end
 end

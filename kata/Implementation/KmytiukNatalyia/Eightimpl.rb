@@ -2,6 +2,7 @@
 
 require './kata/Eight'
 
+module KmytiukNatalyiaEightImpl
 class Eightimpl < Eight
   def littres(time)
     (time / 2).floor
@@ -55,4 +56,5 @@ class Eightimpl < Eight
     end
     new
   end
+end
 end

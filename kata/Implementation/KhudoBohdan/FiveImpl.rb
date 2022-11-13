@@ -3,6 +3,7 @@
 require './kata/Five'
 require 'prime'
 
+module KhudoBohdanFiveImpl
 class FiveImpl < Five
   # 20. Gap in Primes
   def self.gap(g_arg, m_arg, n_arg)
@@ -91,4 +92,5 @@ class FiveImpl < Five
 
     [min, f, t]
   end
+end
 end

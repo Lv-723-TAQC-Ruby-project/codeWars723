@@ -2,6 +2,7 @@
 
 require './kata/Seven'
 
+module KmytiukNatalyiaSevenImpl
 class SevenImpl < Seven
   def new_avg(arr, newavg)
     i = if arr == [] then 0 else
@@ -28,4 +29,5 @@ class SevenImpl < Seven
   def where_is_he(p, bef, _aft)
     p - bef
   end
+end
 end

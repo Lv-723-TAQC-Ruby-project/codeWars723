@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Six'
+module KhudoBohdanSixImpl
 class SixImpl < Six
   # 13. Build a pile of Cubes
   def self.find_nb(m_arg)
@@ -246,4 +247,5 @@ class SixImpl < Six
 
     sections + 1
   end
+end
 end
