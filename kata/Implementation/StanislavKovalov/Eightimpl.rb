@@ -20,10 +20,10 @@ module StanislavKovalovEightImpl
     def self.square_or_square_root(arr)
       (0..arr.length - 1).each do |a|
         rr = Math.sqrt(arr[a]).to_i
-        arr[a] = if arr[a] == rr**2
+        arr[a] = if arr[a] == rr ** 2
                    Math.sqrt(arr[a]).to_i
                  else
-                   arr[a]**2
+                   arr[a] ** 2
                  end
       end
       arr

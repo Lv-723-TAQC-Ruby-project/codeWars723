@@ -34,7 +34,7 @@ module KovalyovVladyslavFiveImpl
     end
 
     def self.solve(m)
-      (2 * m + 1 - (4 * m + 1)**0.5) / 2 / m
+      (2 * m + 1 - (4 * m + 1) ** 0.5) / 2 / m
     end
 
     def self.smallest(n)

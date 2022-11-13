@@ -6,7 +6,7 @@ module KovalyovVladyslavSixImpl
   class SixImpl < Six
     def self.find_nb(m)
       n = i = 0
-      n += (i += 1)**3 while n < m
+      n += (i += 1) ** 3 while n < m
       n == m ? i : -1
     end
 
@@ -34,7 +34,7 @@ module KovalyovVladyslavSixImpl
     end
 
     def self.variance(town, str)
-      temp(town, str).map { |t| (t - mean(town, str))**2 }.sum / temp(town, str).size
+      temp(town, str).map { |t| (t - mean(town, str)) ** 2 }.sum / temp(town, str).size
     rescue StandardError
       -1
     end
@@ -80,8 +80,8 @@ module KovalyovVladyslavSixImpl
       else
         listOfCat.map do |c|
           "(#{c} : #{listOfArt.select do |b|
-                       b.start_with?(c)
-                     end.map { |b| b[/\d+$/].to_i }.sum})"
+            b.start_with?(c)
+          end.map { |b| b[/\d+$/].to_i }.sum})"
         end.join(' - ')
       end
     end

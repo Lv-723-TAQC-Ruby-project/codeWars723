@@ -21,10 +21,10 @@ module BrylAndriiEightImpl
       new_arr = []
       arr.each do |num|
         new_arr << if (Math.sqrt(num) % 1).zero?
-                    Math.sqrt(num).to_i
-                  else
-                    (num * num)
-                  end
+                     Math.sqrt(num).to_i
+                   else
+                     (num * num)
+                   end
       end
       new_arr
     end

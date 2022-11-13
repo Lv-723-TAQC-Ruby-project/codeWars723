@@ -22,7 +22,7 @@ module FedykSvyatoslavEightImpl
         if (Math.sqrt(num) % 1).zero?
           Integer.sqrt(num)
         else
-          num**2
+          num ** 2
         end
       end
     end
@@ -47,7 +47,7 @@ module FedykSvyatoslavEightImpl
     def self.am_I_Wilson(p)
       return false if p >= 564
 
-      (((1..p - 1).inject(1) { |fact, num| fact * num } + 1) % p**2).zero?
+      (((1..p - 1).inject(1) { |fact, num| fact * num } + 1) % p ** 2).zero?
     end
 
     def self.two_decimal_places(n)

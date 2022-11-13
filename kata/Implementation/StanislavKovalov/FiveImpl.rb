@@ -5,6 +5,7 @@ require './kata/Five'
 module StanislavKovalovFiveImpl
   class FiveImpl < Five
     require 'prime'
+
     def self.gap(g, m, n)
       Prime.each(n).select { |p| p >= m }.each_cons(2).find { |a, b| b - a == g }
     end
@@ -22,7 +23,7 @@ module StanislavKovalovFiveImpl
     end
 
     def self.solve(m)
-      (2 * m + 1 - (4 * m + 1)**0.5) / 2 / m
+      (2 * m + 1 - (4 * m + 1) ** 0.5) / 2 / m
     end
 
     def self.smallest(n)
