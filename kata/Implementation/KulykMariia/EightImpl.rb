@@ -19,7 +19,7 @@ module KulykMariiaEightImpl
     def self.square_or_square_root(arr)
       arr.map do |n|
         sqrt = Math.sqrt(n)
-        (sqrt % 1).zero? ? sqrt : n ** 2
+        (sqrt % 1).zero? ? sqrt : n**2
       end
     end
 

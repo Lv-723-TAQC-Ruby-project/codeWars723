@@ -9,7 +9,7 @@ module KulykMariiaSixImpl
       sum = 1
       while sum.to_f < m.to_f
         n += 1
-        sum += n ** 3
+        sum += n**3
       end
       sum == m ? n : -1
     end
@@ -38,5 +38,4 @@ module KulykMariiaSixImpl
       x.to_f / (1 + Math.sqrt(1 + x.to_f))
     end
   end
-
 end

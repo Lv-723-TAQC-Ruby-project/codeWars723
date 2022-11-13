@@ -1,5 +1,13 @@
-require "./kata/Implementation/FedykSvyatoslav/EightImpl.rb"
+# frozen_string_literal: true
 
-module FedykSvyatoslav
-    include FedykSvyatoslavEightImpl
+require './kata/Implementation/FedykSvyatoslav/EightImpl'
+require './kata/Implementation/FedykSvyatoslav/SevenImpl'
+require './kata/Implementation/FedykSvyatoslav/SixImpl'
+require './kata/Implementation/FedykSvyatoslav/FiveImpl'
+
+module FedykSvyatoslavKata
+  include FedykSvyatoslavEightImpl
+  include FedykSvyatoslavSevenImpl
+  include FedykSvyatoslavSixImpl
+  include FedykSvyatoslavFiveImpl
 end

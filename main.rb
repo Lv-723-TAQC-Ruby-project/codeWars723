@@ -2,10 +2,23 @@
 
 require './utils/TaskRunner'
 
-students = Dir['kata/Implementation/*']
+students = Dir['kata/Implementation/**']
 students.map { |string| string.slice! 'kata/Implementation/' }
+students.delete('Implementation.rb')
 
 runner = TaskRunner.new
+
+impl = {
+  'FedykSvyatoslav' => Implementation::FedykSvyatoslav,
+  'KhudoBohdan' => Implementation::KhudoBohdan,
+  'KmytiukNatalyia' => Implementation::KmytiukNatalyia,
+  'KovalyovVladyslav' => Implementation::KovalyovVladyslav,
+  'KulykMariia' => Implementation::KulykMariia,
+  'LypskyiOleksandr' => Implementation::LypskyiOleksandr,
+  'OmetiukhSofiia' => Implementation::OmetiukhSofiia,
+  'StanislavKovalov' => Implementation::StanislavKovalov
+}
+
 methods = {
   1 => runner.method(:litres),
   2 => runner.method(:run_get_volume_of_cuboid),
@@ -49,7 +62,7 @@ while t
     puts 'Wrong student number!'
     break
   end
-  runner.set_user(students[student_number - 1])
+  runner.user = impl[students[student_number - 1]]
 
   system('cls')
   puts 'Please, input task number [1-24]: '

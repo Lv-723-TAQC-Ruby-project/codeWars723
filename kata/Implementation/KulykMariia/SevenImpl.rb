@@ -11,6 +11,7 @@ module KulykMariiaSevenImpl
 
     def self.series_sum(n)
       return '0.00' if n.zero?
+
       value = 0.0
       start = 1.0
 
@@ -21,5 +22,4 @@ module KulykMariiaSevenImpl
       '%.2f' % value
     end
   end
-
 end

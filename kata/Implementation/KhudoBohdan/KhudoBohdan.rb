@@ -1,5 +1,7 @@
-require "./kata/Implementation/KhudoBohdan/EightImpl.rb"
+# frozen_string_literal: true
 
-module KhudoBohdan
-    include KhudoBohdanEightImpl
+require './kata/Implementation/KhudoBohdan/EightImpl'
+
+module KhudoBohdanKata
+  include KhudoBohdanEightImpl
 end

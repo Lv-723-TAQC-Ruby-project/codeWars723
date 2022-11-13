@@ -1,9 +1,11 @@
-require './kata/Implementation/OmetiukhSofiia/EightImpl.rb'
-require './kata/Implementation/OmetiukhSofiia/SevenImpl.rb'
-require './kata/Implementation/OmetiukhSofiia/SixImpl.rb'
-require './kata/Implementation/OmetiukhSofiia/FiveImpl.rb'
+# frozen_string_literal: true
 
-module OmetiukhSofiia 
+require './kata/Implementation/OmetiukhSofiia/EightImpl'
+require './kata/Implementation/OmetiukhSofiia/SevenImpl'
+require './kata/Implementation/OmetiukhSofiia/SixImpl'
+require './kata/Implementation/OmetiukhSofiia/FiveImpl'
+
+module OmetiukhSofiia
   include OmetiukhSofiiaEightImpl
   include OmetiukhSofiiaSevenImpl
   include OmetiukhSofiiaSixImpl
