@@ -5,11 +5,16 @@ require './kata/Implementation/KhudoBohdan/KhudoBohdan'
 require './kata/Implementation/KmytiukNatalyia/KmytiukNatalyia'
 require './kata/Implementation/KovalyovVladyslav/KovalyovVladyslav'
 require './kata/Implementation/KulykMariia/KulykMariia'
-# require './kata/Implementation/LypskyiOleksandr/LypskyiOleksandr.rb'
+#require './kata/Implementation/LypskyiOleksandr/LypskyiOleksandr.rb'
 require './kata/Implementation/OmetiukhSofiia/OmetiukhSofiia'
 require './kata/Implementation/StanislavKovalov/StanislavKovalov'
+require './kata/Implementation/BrylAndrii/BrylAndrii.rb'
 
 module Implementation
+  module BrylAndrii
+    include BrylAndriiKata
+  end
+
   module FedykSvyatoslav
     include FedykSvyatoslavKata
   end
@@ -31,7 +36,7 @@ module Implementation
   end
 
   module LypskyiOleksandr
-    # include LypskyiOleksandrKata
+    #include LypskyiOleksandrKata
   end
 
   module OmetiukhSofiia

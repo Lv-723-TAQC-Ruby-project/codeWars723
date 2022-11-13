@@ -9,6 +9,7 @@ students.delete('Implementation.rb')
 runner = TaskRunner.new
 
 impl = {
+  'BrylAndrii' => Implementation::BrylAndrii,
   'FedykSvyatoslav' => Implementation::FedykSvyatoslav,
   'KhudoBohdan' => Implementation::KhudoBohdan,
   'KmytiukNatalyia' => Implementation::KmytiukNatalyia,
