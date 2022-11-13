@@ -8,7 +8,7 @@ module FedykSvyatoslavSixImpl
       n = 1
       check = 0
       while check <= m
-        check += n**3
+        check += n ** 3
         return n if check == m
 
         n += 1
@@ -78,7 +78,7 @@ module FedykSvyatoslavSixImpl
       return -1 if num_arr.size.zero?
 
       mean = num_arr.map(&:to_f).sum / num_arr.size
-      sum = num_arr.sum(0.0) { |element| (element.to_f - mean)**2 }
+      sum = num_arr.sum(0.0) { |element| (element.to_f - mean) ** 2 }
       sum / num_arr.size
     end
 

@@ -19,7 +19,7 @@ module KmytiukNatalyiaEightImpl
     def square_or_square_root(arr)
       arr.map! do |n|
         s = Math.sqrt(n)
-        (s - s.floor).zero? ? s.to_i : n**2
+        (s - s.floor).zero? ? s.to_i : n ** 2
       end
     end
 

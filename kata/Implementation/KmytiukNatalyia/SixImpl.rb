@@ -9,7 +9,7 @@ module KmytiukNatalyiaSixImpl
       n = 0
       loop do
         if m.positive?
-          cur_cube_vol = (n + 1)**3
+          cur_cube_vol = (n + 1) ** 3
           m -= cur_cube_vol
         elsif m.zero?
           return n
@@ -66,7 +66,7 @@ module KmytiukNatalyiaSixImpl
 
       m = mean(town, strng)
       sum = 0.0
-      transformed_data.each { |v| sum += (v - m)**2 }
+      transformed_data.each { |v| sum += (v - m) ** 2 }
       sum / value_of_month(town, strng).length
     end
 

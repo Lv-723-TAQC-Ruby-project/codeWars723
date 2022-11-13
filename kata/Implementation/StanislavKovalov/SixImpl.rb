@@ -9,7 +9,7 @@ module StanislavKovalovSixImpl
       sum = 1
       while sum.to_f < m.to_f
         n += 1
-        sum += n**3
+        sum += n ** 3
       end
       sum == m ? n : -1
     end
@@ -38,7 +38,7 @@ module StanislavKovalovSixImpl
     end
 
     def self.variance(town, str)
-      temp(town, str).map { |t| (t - mean(town, str))**2 }.sum / temp(town, str).size
+      temp(town, str).map { |t| (t - mean(town, str)) ** 2 }.sum / temp(town, str).size
     rescue StandardError
       -1
     end
@@ -84,8 +84,8 @@ module StanislavKovalovSixImpl
       else
         listOfCat.map do |c|
           "(#{c} : #{listOfArt.select do |b|
-                       b.start_with?(c)
-                     end.map { |b| b[/\d+$/].to_i }.sum})"
+            b.start_with?(c)
+          end.map { |b| b[/\d+$/].to_i }.sum})"
         end.join(' - ')
       end
     end

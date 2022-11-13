@@ -9,7 +9,7 @@ module OmetiukhSofiiaSixImpl
       n = 1
       while total < m
         n += 1
-        total += n**3
+        total += n ** 3
       end
       total == m ? n : -1
     end
@@ -38,7 +38,7 @@ module OmetiukhSofiiaSixImpl
     def self.variance(town, strng)
       mine_numbers(town, strng) do |value|
         temp = mean(town, strng)
-        value.map { |fall| (fall - temp)**2 }.reduce(:+) / value.size
+        value.map { |fall| (fall - temp) ** 2 }.reduce(:+) / value.size
       end
     end
 

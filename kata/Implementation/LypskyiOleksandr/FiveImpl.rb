@@ -7,8 +7,8 @@ module LypskyiOleksandrFiveImpl
     def self.gap(g, m, n)
       (m..n).each do |i|
         return [i, i + g] if Prime.prime?(i) && Prime.prime?(i + g) && (i + 1..i + g - 1).none? do |num|
-                               Prime.prime? num
-                             end
+          Prime.prime? num
+        end
       end
       nil
     end

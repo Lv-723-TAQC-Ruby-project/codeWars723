@@ -8,7 +8,7 @@ module KhudoBohdanSixImpl
       n = 0
       while m_arg > n
         n += 1
-        m_arg -= n**3
+        m_arg -= n ** 3
       end
       return n if m_arg.zero?
 
@@ -116,7 +116,7 @@ module KhudoBohdanSixImpl
 
         sum = 0
         n_arr.each do |n|
-          sum += (n.to_f - average)**2
+          sum += (n.to_f - average) ** 2
         end
         variance_arr.append(sum / n_arr.count)
       end
