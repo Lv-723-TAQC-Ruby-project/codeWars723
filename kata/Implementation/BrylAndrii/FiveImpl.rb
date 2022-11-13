@@ -1,22 +1,26 @@
-# frozen_string_literal: true
-
 require './kata/Five'
 require 'prime'
 
-module BrylAndriiFiveImpl
-  class FiveImpl < Five
-    def self.gap(g_arg, m_arg, n_arg) end
+class FiveImpl < Five
 
-    def self.zeros(num) end
+  #Gap in Primes
+  def self.gap(g_arg, m_arg, n_arg) end
 
-    def fib(num) end
+  #Number of trailing zeros of N!
+  def self.zeros(num) end
 
-    def sum(num) end
+  #Perimeter of squares in a rectangle
+  def self.perimeter(num) end
 
-    def self.perimeter(num) end
+  #Which x for that sum?
+  def sum(num) end
 
-    def self.solve(m_arg) end
+  #Find the smallest
+  def self.smallest(num) end
 
-    def self.smallest(num) end
-  end
+  #
+  def fib(num) end
+
+  def self.solve(m_arg) end
+
 end
