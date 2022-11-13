@@ -60,7 +60,7 @@ module KhudoBohdanSixImpl
     end
 
     # 16. Rainfall
-    def self.mean(town, strng)
+    def self.get_towns(strng)
       words = strng.gsub(/[^a-z \n:]+/i, '').gsub(/:/, "\n").split("\n").to_a
 
       towns = []
@@ -69,6 +69,11 @@ module KhudoBohdanSixImpl
         towns.append(words[i])
         i += 2
       end
+      towns
+    end
+    def self.mean(town, strng)
+
+      towns = get_towns(strng)
 
       numbers = strng.gsub(/[^0-9 \n.]+/i, '').split("\n").to_a
       avrg = []
@@ -95,14 +100,8 @@ module KhudoBohdanSixImpl
 
     # 16
     def self.variance(town, strng)
-      words = strng.gsub(/[^a-z \n:]+/i, '').gsub(/:/, "\n").split("\n").to_a
 
-      towns = []
-      i = 0
-      while i < words.count
-        towns.append(words[i])
-        i += 2
-      end
+      towns = get_towns(strng)
 
       numbers = strng.gsub(/[^0-9 \n.]+/i, '').split("\n").to_a
 

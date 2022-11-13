@@ -40,9 +40,9 @@ methods = {
   17 => runner.method(:nba_cup),
   18 => runner.method(:stockList),
   19 => runner.method(:artificial_rain),
-  20 => runner.method(:is_prime),
-  21 => runner.method(:gap),
-  22 => runner.method(:zeros),
+  20 => runner.method(:gap),
+  21 => runner.method(:zeros),
+  22 => runner.method(:perimeter),
   23 => runner.method(:solve),
   24 => runner.method(:smallest)
 }
