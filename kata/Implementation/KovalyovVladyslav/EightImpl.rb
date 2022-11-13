@@ -2,6 +2,7 @@
 
 require './kata/Eight'
 
+module KovalyovVladyslavEightImpl
 class EightImpl < Eight
   def self.litres(time)
     (time * 0.5).floor
@@ -56,4 +57,5 @@ class EightImpl < Eight
     end
     result
   end
+end
 end

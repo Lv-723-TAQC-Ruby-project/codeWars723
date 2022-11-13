@@ -2,6 +2,7 @@
 
 require './kata/Six'
 
+module KovalyovVladyslavSixImpl
 class SixImpl < Six
   def self.find_nb(m)
     n = i = 0
@@ -100,4 +101,5 @@ class SixImpl < Six
     end
     [max, cur_size].max
   end
+end
 end

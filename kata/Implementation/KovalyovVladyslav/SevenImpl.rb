@@ -2,6 +2,7 @@
 
 require './kata/Seven'
 
+module KovalyovVladyslavSevenImpl
 class SevenImpl < Seven
   def self.new_avg(arr, newavg)
     d = newavg * (arr.size + 1) - arr.sum
@@ -17,4 +18,5 @@ class SevenImpl < Seven
   def self.where_is_he(p, bef, aft)
     p - [bef + 1, p - aft].max + 1
   end
+end
 end

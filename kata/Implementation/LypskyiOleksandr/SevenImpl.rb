@@ -2,6 +2,7 @@
 
 require './kata/Seven'
 
+module LypskyiOleksandrSevenImpl
 class SevenImpl < Seven
   # 10. Looking for a benefactor
   def self.new_avg(arr, newavg)
@@ -24,4 +25,5 @@ class SevenImpl < Seven
   def self.where_is_he(p, bef, aft)
     p - bef > aft + 1 ? aft + 1 : p - bef
   end
+end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Five'
-
+module LypskyiOleksandrFiveImpl
 class FiveImpl < Five
   # 20. Gap in Primes
   def self.gap(g, m, n)
@@ -56,4 +56,5 @@ class FiveImpl < Five
     end
     array_to_return
   end
+end
 end

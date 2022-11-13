@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Five'
-
+module KovalyovVladyslavFiveImpl
 class FiveImpl < Five
   def self.gap(g, m, n)
     last_prime = nil
@@ -46,4 +46,5 @@ class FiveImpl < Five
       end
     end.min
   end
+end
 end

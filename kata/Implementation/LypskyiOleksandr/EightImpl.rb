@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Eight'
-
+module LypskyiOleksandrEightImpl
 class EightImpl < Eight
   # 1. Keep Hydrated!
   def self.litres(time)
@@ -61,4 +61,5 @@ class EightImpl < Eight
   def self.divisible_by(numbers, divisor)
     numbers.select { |number| (number % divisor).zero? ? number : nil }
   end
+end
 end
