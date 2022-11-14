@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 require './kata/Six'
-require "bigdecimal/math"
+require 'bigdecimal/math'
 module LypskyiOleksandrSixImpl
   class SixImpl < Six
-
     # 13. Build a pile of Cubes
     def self.find_nb(m)
       volume = 0
       number_of_rows = 1
 
-      while true
-        volume += number_of_rows ** 3
+      loop do
+        volume += number_of_rows**3
         if volume >= m
           return volume == m ? number_of_rows : -1
         end
+
         number_of_rows += 1
       end
     end
@@ -26,66 +26,64 @@ module LypskyiOleksandrSixImpl
       string_to_return = "Original Balance: #{'%.2f' % balance}"
       total_expense = 0
       total_items = 0
-      for i in array_of_strings
-        if i.empty?
-          next
-        end
+      array_of_strings.each do |i|
+        next if i.empty?
+
         temp_array = i.split
         price_of_item = temp_array[2].gsub(/[^0-9. ]/i, '').to_f
         total_expense += price_of_item
         total_items += 1
         balance -= price_of_item
         price_of_item = '%.2f' % price_of_item
-        string_to_return += "\r\n#{temp_array[0]} #{temp_array[1].gsub(/[^a-zA-Z ]/i, '')} #{price_of_item.to_s} Balance #{'%.2f' % balance}"
+        string_to_return += "\r\n#{temp_array[0]} #{temp_array[1].gsub(/[^a-zA-Z ]/i,
+                                                                       '')} #{price_of_item} Balance #{'%.2f' % balance}"
       end
-      string_to_return += "\r\nTotal expense  #{'%.2f' % total_expense}\r\nAverage expense  #{'%.2f' % (total_expense / total_items)}"
+      string_to_return += "\r\nTotal expense  #{'%.2f' % total_expense}\r\nAverage expense  #{format('%.2f',
+                                                                                                     (total_expense / total_items))}"
 
       string_to_return
     end
 
     # 15. Floating-point Approximation (I)
     def self.f(x)
-      BigMath.sqrt((1 + BigDecimal("#{x}")), 20) - 1
+      BigMath.sqrt((1 + BigDecimal(x.to_s)), 20) - 1
     end
 
     # 16. Rainfall
     def self.to_dict_load(data)
       all_towns = data.split("\n")
       town_wise = {}
-      all_towns.each {
-        |x| town_name, values = x.split(":")
-        values = values.split(",")
+      all_towns.each do |town|
+        town_name, values = town.split(':')
+        values = values.split(',')
         vals = []
-        values.each {
-          |x|
-          val = x.split(" ")[1]
+        values.each do |x|
+          val = x.split(' ')[1]
           vals << val.to_f
-        }
+        end
         mean = vals.sum / vals.size
         variance_array = []
-        for record in vals
-          variance_array << ((mean - record.to_f) ** 2)
+        vals.each do |record|
+          variance_array << ((mean - record.to_f)**2)
         end
         variance = variance_array.sum / variance_array.size
         town_wise[town_name] = { 'mean' => mean, 'variance' => variance }
-      }
+      end
       town_wise
     end
 
     def self.mean(town, data)
       dt = to_dict_load(data)
-      if dt.include? town
-        return dt[town]['mean']
-      end
-      return -1
+      return dt[town]['mean'] if dt.include? town
+
+      -1
     end
 
     def self.variance(town, data)
       dt = to_dict_load(data)
-      if dt.include? town
-        return dt[town]['variance']
-      end
-      return -1
+      return dt[town]['variance'] if dt.include? town
+
+      -1
     end
 
     # 17. Ranking NBA
@@ -96,57 +94,54 @@ module LypskyiOleksandrSixImpl
 
       raw_data = result_sheet.split(',')
       raw_data.each do |res|
-        if res.include? '.'
-          return "Error(float number):#{res}"
-          break
+        return "Error(float number):#{res}" if res.include? '.'
+
+        scores_from_raw_data = res.scan(/\d{2,3}/)
+        first_team_score = scores_from_raw_data.first
+        second_team_score = scores_from_raw_data.last
+        first_team_name, second_team_name = res.split(first_team_score)
+        first_team_name = first_team_name.strip
+        second_team_name = second_team_name.split(' ')[0..-2].join(' ')
+        first_team_score = first_team_score.to_i
+        second_team_score = second_team_score.to_i
+
+        unless team_results.key?(first_team_name)
+          team_results[first_team_name] =
+            { 'W' => 0, 'D' => 0, 'L' => 0, 'Scored' => 0, 'Conceded' => 0, 'Points' => 0 }
+        end
+
+        unless team_results.key?(second_team_name)
+          team_results[second_team_name] =
+            { 'W' => 0, 'D' => 0, 'L' => 0, 'Scored' => 0, 'Conceded' => 0, 'Points' => 0 }
+        end
+
+        if first_team_score > second_team_score
+          team_results[first_team_name]['W'] += 1
+          team_results[first_team_name]['Scored'] += first_team_score
+          team_results[first_team_name]['Conceded'] += second_team_score
+          team_results[first_team_name]['Points'] += 3
+          team_results[second_team_name]['L'] += 1
+          team_results[second_team_name]['Scored'] += second_team_score
+          team_results[second_team_name]['Conceded'] += first_team_score
+
+        elsif first_team_score < second_team_score
+          team_results[second_team_name]['W'] += 1
+          team_results[second_team_name]['Scored'] += second_team_score
+          team_results[second_team_name]['Conceded'] += first_team_score
+          team_results[second_team_name]['Points'] += 3
+          team_results[first_team_name]['L'] += 1
+          team_results[first_team_name]['Scored'] += first_team_score
+          team_results[first_team_name]['Conceded'] += second_team_score
+
         else
-          scores_from_raw_data = res.scan(/\d{2,3}/)
-          first_team_score = scores_from_raw_data.first
-          second_team_score = scores_from_raw_data.last
-          first_team_name, second_team_name = res.split(first_team_score)
-          first_team_name = first_team_name.strip
-          second_team_name = second_team_name.split(' ')[0..-2].join(' ')
-          first_team_score = first_team_score.to_i
-          second_team_score = second_team_score.to_i
-
-          unless team_results.key?(first_team_name)
-            team_results[first_team_name] =
-              { 'W' => 0, 'D' => 0, 'L' => 0, 'Scored' => 0, 'Conceded' => 0, 'Points' => 0 }
-          end
-
-          unless team_results.key?(second_team_name)
-            team_results[second_team_name] =
-              { 'W' => 0, 'D' => 0, 'L' => 0, 'Scored' => 0, 'Conceded' => 0, 'Points' => 0 }
-          end
-
-          if first_team_score > second_team_score
-            team_results[first_team_name]['W'] += 1
-            team_results[first_team_name]['Scored'] += first_team_score
-            team_results[first_team_name]['Conceded'] += second_team_score
-            team_results[first_team_name]['Points'] += 3
-            team_results[second_team_name]['L'] += 1
-            team_results[second_team_name]['Scored'] += second_team_score
-            team_results[second_team_name]['Conceded'] += first_team_score
-
-          elsif first_team_score < second_team_score
-            team_results[second_team_name]['W'] += 1
-            team_results[second_team_name]['Scored'] += second_team_score
-            team_results[second_team_name]['Conceded'] += first_team_score
-            team_results[second_team_name]['Points'] += 3
-            team_results[first_team_name]['L'] += 1
-            team_results[first_team_name]['Scored'] += first_team_score
-            team_results[first_team_name]['Conceded'] += second_team_score
-
-          else
-            team_results[first_team_name]['D'] += 1
-            team_results[second_team_name]['D'] += 1
-            team_results[first_team_name]['Scored'] += first_team_score
-            team_results[second_team_name]['Scored'] += second_team_score
-            team_results[first_team_name]['Conceded'] += second_team_score
-            team_results[second_team_name]['Conceded'] += first_team_score
-            team_results[first_team_name]['Points'] += 1
-            team_results[second_team_name]['Points'] += 1
-          end
+          team_results[first_team_name]['D'] += 1
+          team_results[second_team_name]['D'] += 1
+          team_results[first_team_name]['Scored'] += first_team_score
+          team_results[second_team_name]['Scored'] += second_team_score
+          team_results[first_team_name]['Conceded'] += second_team_score
+          team_results[second_team_name]['Conceded'] += first_team_score
+          team_results[first_team_name]['Points'] += 1
+          team_results[second_team_name]['Points'] += 1
         end
 
         if team_results.key?(to_find)
@@ -157,7 +152,7 @@ module LypskyiOleksandrSixImpl
       end
 
       # 18. Help the bookseller!
-      def self.stockList(l, m)
+      def self.stockList(_l, _m)
         return '' if listOfArt.empty? || listOfCat.empty?
 
         books_results = {}
@@ -175,11 +170,10 @@ module LypskyiOleksandrSixImpl
         end
 
         array_to_return.join(' - ')
-
       end
 
       # 19. Artificial Rain
-      def self.artificial_rain(garden)
+      def artificial_rain(garden)
         left = 0
         longest_section = 0
         current_section = 1
@@ -187,16 +181,21 @@ module LypskyiOleksandrSixImpl
           if garden[i] < garden[i - 1]
             left = i
           elsif garden[i] > garden[i - 1]
-            longest_section = if longest_section < current_section ? current_section : longest_section
-                                current_section = i - left
+            longest_section = if longest_section < current_section
+                                current_section
+                              else
+                                longest_section
                               end
-            current_section += 1
+            current_section = i - left
           end
-          if longest_section > current_section
-            longest_section
-          else
-            current_section
-          end
+          current_section += 1
+        end
+        if longest_section > current_section
+          longest_section
+        else
+          current_section
         end
       end
     end
+  end
+end
