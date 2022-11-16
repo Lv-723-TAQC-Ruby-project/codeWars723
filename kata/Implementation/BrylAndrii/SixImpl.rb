@@ -4,7 +4,7 @@ module BrylAndriiSixImpl
   class SixImpl < Six
 
     #Build a pile of Cubes
-    def find_nb(m)
+    def self.find_nb(m)
       output = 1
       check = 0
       while check <= m
@@ -18,7 +18,7 @@ module BrylAndriiSixImpl
     end
 
     #Easy Balance Checking
-    def balance(b)
+    def self.balance(b)
       clean = b.gsub(/[^0-9a-z \n.]+/i, '') # remove all non-alphanumeric characters
       num = clean.gsub(/[^0-9 \n.]+/i, '') # remove all non-numeric characters
       price = num.gsub(/^[\d+.\n]+/i, '') # remove all non-float characters
@@ -60,13 +60,13 @@ module BrylAndriiSixImpl
     end
 
     #Floating-point Approximation (I)
-    def f(x)
+    def self.f(x)
       x / (1 + Math.sqrt(1 + x))
     end
 
     #Rainfall
     #not fully working
-    def mean(town, strng)
+    def self.mean(town, strng)
       if town == ""
         return -1
       end
@@ -93,7 +93,7 @@ module BrylAndriiSixImpl
       end
     end
 
-    def variance(town, strng)
+    def self.variance(town, strng)
       if town == ""
         return -1
       end
@@ -127,12 +127,12 @@ module BrylAndriiSixImpl
     end
 
     #Ranking NBA teams
-    def nba_cup(result_sheet, to_find) end
+    def self.nba_cup(result_sheet, to_find) end
 
     #Help the bookseller !
-    def stockList(listOfArt, listOfCat) end
+    def self.stockList(listOfArt, listOfCat) end
 
     #Artificial Rain (retired)
-    def artificial_rain(garden) end
+    def self.artificial_rain(garden) end
   end
 end

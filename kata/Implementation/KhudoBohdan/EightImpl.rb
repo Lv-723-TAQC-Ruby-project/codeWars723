@@ -38,7 +38,7 @@ module KhudoBohdanEightImpl
 
     # 5. Count of positives / sum of negatives
     def self.count_positives_sum_negatives(lst)
-      return lst if lst == []
+      return [] if lst == [] || lst == nil
 
       result = [0, 0]
       lst.each do |a|

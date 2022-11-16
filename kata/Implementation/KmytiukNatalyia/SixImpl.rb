@@ -5,7 +5,7 @@ require './kata/Six'
 module KmytiukNatalyiaSixImpl
   class SixImpl < Six
     # 13. Build a pile of Cubes
-    def find_nb(m)
+    def self.find_nb(m)
       n = 0
       loop do
         if m.positive?
@@ -21,7 +21,7 @@ module KmytiukNatalyiaSixImpl
     end
 
     # 14. Easy balance checking
-    def balance(b)
+    def self.balance(b)
       inputs = b.scan(/\d+\.\d+/).map!(&:to_f)
       balance = inputs.shift
       total = inputs.inject(:+).round(2)
@@ -44,12 +44,12 @@ module KmytiukNatalyiaSixImpl
     end
 
     # 15. Floating-point Approximation (I)
-    def f(x)
+    def self.f(x)
       x / (1 + Math.sqrt(1 + x))
     end
 
     # 16. Rainfall
-    def mean(town, strng)
+    def self.mean(town, strng)
       transformed_data = value_of_month(town, strng)
       return -1 if transformed_data.empty?
 
@@ -60,7 +60,7 @@ module KmytiukNatalyiaSixImpl
       result / value_of_month(town, strng).length
     end
 
-    def variance(town, strng)
+    def self.variance(town, strng)
       transformed_data = value_of_month(town, strng)
       return -1 if transformed_data.empty?
 
@@ -70,7 +70,7 @@ module KmytiukNatalyiaSixImpl
       sum / value_of_month(town, strng).length
     end
 
-    def value_of_month(town, strng)
+    def self.value_of_month(town, strng)
       month_values = []
       data_new = strng.split("\n").each_with_object({}) do |str, hsh|
         city, city_value = str.split(':')
@@ -89,7 +89,7 @@ module KmytiukNatalyiaSixImpl
     end
 
     # 17. Ranking NBA
-    def nba_cup(result_sheet, to_find)
+    def self.nba_cup(result_sheet, to_find)
       return "#{to_find}:This team didn't play!" unless result_sheet.match(/#{to_find}\s/)
 
       result = result_sheet.split(',')
@@ -124,7 +124,7 @@ module KmytiukNatalyiaSixImpl
     end
 
     # 18. Help the bookseller!
-    def stockList(listOfArt, listOfCat)
+    def self.stockList(listOfArt, listOfCat)
       return '' if listOfArt.empty?
 
       num = lambda { |c|
@@ -138,7 +138,7 @@ module KmytiukNatalyiaSixImpl
     end
 
     # 19. Artificial Rain
-    def artificial_rain(garden)
+    def self.artificial_rain(garden)
       divs = 0
       num = garden.count
       left = Array.new(num, 0)

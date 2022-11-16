@@ -4,7 +4,7 @@ require './kata/Seven'
 
 module KmytiukNatalyiaSevenImpl
   class SevenImpl < Seven
-    def new_avg(arr, newavg)
+    def self.new_avg(arr, newavg)
       i = if arr == [] then
             0
           else
@@ -17,7 +17,7 @@ module KmytiukNatalyiaSevenImpl
       raise ValueError
     end
 
-    def series_sum(n)
+    def self.series_sum(n)
       sum = 0
       return '0.00' if n.zero?
 
@@ -28,7 +28,7 @@ module KmytiukNatalyiaSevenImpl
       '%.2f' % sum.to_s
     end
 
-    def where_is_he(p, bef, _aft)
+    def self.where_is_he(p, bef, _aft)
       p - bef
     end
   end

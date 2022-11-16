@@ -3,27 +3,27 @@
 require './kata/Eight'
 
 module KmytiukNatalyiaEightImpl
-  class Eightimpl < Eight
-    def littres(time)
+  class EightImpl < Eight
+    def self.litres(time)
       (time / 2).floor
     end
 
-    def get_volume_of_cuboid(length, width, height)
+    def self.get_volume_of_cuboid(length, width, height)
       length * width * height
     end
 
-    def converter(mpg)
+    def self.converter(mpg)
       (mpg * 1.609344 / 4.54609188).round(2)
     end
 
-    def square_or_square_root(arr)
+    def self.square_or_square_root(arr)
       arr.map! do |n|
         s = Math.sqrt(n)
         (s - s.floor).zero? ? s.to_i : n ** 2
       end
     end
 
-    def count_positives_sum_negatives(lst)
+    def self.count_positives_sum_negatives(lst)
       positives = []
       negatives = []
       return [] if lst == []
@@ -38,18 +38,18 @@ module KmytiukNatalyiaEightImpl
       [positives.count, negatives.sum]
     end
 
-    def am_i_wilson(p)
+    def self.am_i_wilson(p)
       (2..Math.sqrt(p).floor).each do |m|
         return false if (p % m).zero?
       end
       true
     end
 
-    def two_decimal_places(n)
+    def self.two_decimal_places(n)
       n.round(2)
     end
 
-    def divisible_by(numbers, divisor)
+    def self.divisible_by(numbers, divisor)
       new = []
       numbers.each do |i|
         new << i if (i % divisor).zero?
