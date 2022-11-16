@@ -22,9 +22,15 @@ ListImpl::IMPL.each do |student_name, student_impl|
       end
     end
 
-    describe 'Volume' do
-
+    describe 'Volume of a Cuboid' do
+      [
+        [2, 3, 4, 24],
+        [4, 6, 8, 192],
+        [7, 14, 26, 2548],
+      ].each do |test_data, expect_result|
       it 'Should get volume of cuboid' do
+        expect(student_impl.get_volume_of_cuboid(test_data)).to eq(expect_result)
+        end
       end
     end
 

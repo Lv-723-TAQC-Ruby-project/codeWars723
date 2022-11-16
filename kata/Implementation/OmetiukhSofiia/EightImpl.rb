@@ -5,7 +5,7 @@ require './kata/Eight'
 module OmetiukhSofiiaEightImpl
   class EightImpl < Eight
     def self.litres(time)
-      time / 2.floor
+      (time / 2).floor
     end
 
     def self.get_volume_of_cuboid(length, width, height)
