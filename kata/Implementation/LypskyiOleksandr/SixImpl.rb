@@ -174,7 +174,7 @@ module LypskyiOleksandrSixImpl
     end
 
     # 19. Artificial Rain
-    def artificial_rain(garden)
+    def self.artificial_rain(garden)
       left = 0
       longest_section = 0
       current_section = 1
