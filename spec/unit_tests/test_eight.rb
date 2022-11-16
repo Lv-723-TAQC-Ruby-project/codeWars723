@@ -61,8 +61,16 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'Willson primes' do
-
+      [
+        [5, true ],
+        [13, true ],
+        [563, true],
+        [45, false],
+        [-89, false]
+      ].each do |test_data, expect_result|
       it 'Should check if a number is a Wilson prime' do
+        expect(student_impl.am_I_Wilson(test_data).to eql(expect_result))
+      end
       end
     end
 
