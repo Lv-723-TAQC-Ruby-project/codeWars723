@@ -4,7 +4,7 @@ require './kata/Eight'
 
 module KmytiukNatalyiaEightImpl
   class EightImpl < Eight
-    def self.littres(time)
+    def self.litres(time)
       (time / 2).floor
     end
 
