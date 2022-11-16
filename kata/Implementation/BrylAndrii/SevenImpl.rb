@@ -4,7 +4,7 @@ module BrylAndriiSevenImpl
   class SevenImpl < Seven
 
     #Looking for a benefactor
-    def new_avg(arr, newavg)
+    def self.new_avg(arr, newavg)
       new_avg = newavg * (arr.count + 1) - arr.sum
       if new_avg <= 0
         raise ArgumentError
