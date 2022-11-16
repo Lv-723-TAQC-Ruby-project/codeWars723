@@ -4,7 +4,7 @@ module BrylAndriiSixImpl
   class SixImpl < Six
 
     #Build a pile of Cubes
-    def find_nb(m)
+    def self.find_nb(m)
       output = 1
       check = 0
       while check <= m
@@ -18,7 +18,7 @@ module BrylAndriiSixImpl
     end
 
     #Easy Balance Checking
-    def balance(b)
+    def self.balance(b)
       clean = b.gsub(/[^0-9a-z \n.]+/i, '') # remove all non-alphanumeric characters
       num = clean.gsub(/[^0-9 \n.]+/i, '') # remove all non-numeric characters
       price = num.gsub(/^[\d+.\n]+/i, '') # remove all non-float characters
@@ -60,12 +60,12 @@ module BrylAndriiSixImpl
     end
 
     #Floating-point Approximation (I)
-    def f(x)
+    def self.f(x)
       x / (1 + Math.sqrt(1 + x))
     end
 
     #Rainfall
-    def mean(town, data)
+    def self.mean(town, data)
       town = data.split("\n").select { |x| x if x.split(':').first == town }[0]
       return -1 if town.nil?
       arr = town.gsub(/[^\d,-,^.]+/, '')
@@ -74,7 +74,7 @@ module BrylAndriiSixImpl
       arr.map(&:to_f).inject { |sum, el| sum + el }.to_f / arr.size
     end
 
-    def variance(town, strng)
+    def self.variance(town, strng)
       average = mean(town, strng)
       town = strng.split("\n").select { |x| x.split(':').first == town }[0]
       return -1 if town.nil?
@@ -85,7 +85,7 @@ module BrylAndriiSixImpl
     end
 
     #Ranking NBA teams
-    def nba_cup(result_sheet, to_find)
+    def self.nba_cup(result_sheet, to_find)
       return '' if to_find == ''
       return format("%s:This team didn't play!", to_find) unless result_sheet.match(/#{to_find}\s/)
 
@@ -94,6 +94,7 @@ module BrylAndriiSixImpl
       losses = 0
       scored = 0
       conceded = 0
+      points = 0
 
       result = result_sheet.split(',')
       result.each do |x|
@@ -112,14 +113,15 @@ module BrylAndriiSixImpl
         wins += 1 if first > second
         losses += 1 if first < second
         draws += 1 if first == second
+        points = wins * 3 + draws
       end
-      format('%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d', to_find, wins, draws, losses, scored, conceded, (wins * 3 + draws))
+      format('%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d', to_find, wins, draws, losses, scored, conceded, points)
     end
 
     #Help the bookseller !
-    def stockList(listOfArt, listOfCat) end
+    def self.stockList(listOfArt, listOfCat) end
 
     #Artificial Rain (retired)
-    def artificial_rain(garden) end
+    def self.artificial_rain(garden) end
   end
 end
