@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require './kata/Six'
 
 module BrylAndriiSixImpl
   class SixImpl < Six
-
-    #Build a pile of Cubes
+    # Build a pile of Cubes
     def self.find_nb(m)
       output = 1
       check = 0
@@ -17,7 +18,7 @@ module BrylAndriiSixImpl
       -1
     end
 
-    #Easy Balance Checking
+    # Easy Balance Checking
     def self.balance(b)
       clean = b.gsub(/[^0-9a-z \n.]+/i, '') # remove all non-alphanumeric characters
       num = clean.gsub(/[^0-9 \n.]+/i, '') # remove all non-numeric characters
@@ -59,80 +60,95 @@ module BrylAndriiSixImpl
       out.gsub(/\\r\\n/i, "\r\n") # replace \r\n with actual line break
     end
 
-    #Floating-point Approximation (I)
+    # Floating-point Approximation (I)
     def self.f(x)
       x / (1 + Math.sqrt(1 + x))
     end
 
-    #Rainfall
-    #not fully working
-    def self.mean(town, strng)
-      if town == ""
-        return -1
-      end
-      if strng == ""
-        return -1
-      end
-      if strng.include? town
-        data = strng.split("\n")
-        data.each do |x|
-          if x.include? town
-            x = x.split(":")
-            x = x[1]
-            x = x.split(",")
-            sum = 0
-            x.each do |y|
-              y = y.split(" ")
-              sum += y[1].to_f
-            end
-            return (sum / x.length).round(2)
-          end
-        end
-      else
-        return -1
-      end
+    # Rainfall
+    def self.mean(town, data)
+      town = data.split("\n").select { |x| x if x.split(':').first == town }[0]
+      return -1 if town.nil?
+      arr = town.gsub(/[^\d,^.]+/, '')
+                .split(',')
+      return -1 if arr.size.zero?
+      arr.map(&:to_f).inject { |sum, el| sum + el }.to_f / arr.size
     end
 
     def self.variance(town, strng)
-      if town == ""
-        return -1
-      end
-      if strng == ""
-        return -1
-      end
-      if strng.include? town
-        data = strng.split("\n")
-        data.each do |x|
-          if x.include? town
-            x = x.split(":")
-            x = x[1]
-            x = x.split(",")
-            sum = 0
-            x.each do |y|
-              y = y.split(" ")
-              sum += y[1].to_f
-            end
-            mean = sum / x.length
-            sum = 0
-            x.each do |y|
-              y = y.split(" ")
-              sum += (y[1].to_f - mean) ** 2
-            end
-            return (sum / x.length).round(2)
-          end
-        end
-      else
-        return -1
-      end
+      average = mean(town, strng)
+      town = strng.split("\n").select { |x| x.split(':').first == town }[0]
+      return -1 if town.nil?
+      arr = town.gsub(/[^\d,^.]+/, '')
+                .split(',')
+                .map { |x| (x.to_f - average) ** 2 }
+      arr.inject { |sum, el| sum + el }.to_f / arr.size
     end
 
-    #Ranking NBA teams
-    def self.nba_cup(result_sheet, to_find) end
+    # Ranking NBA teams
+    def self.nba_cup(result_sheet, to_find)
+      return '' if to_find == ''
+      return format("%s:This team didn't play!", to_find) unless result_sheet.match(/#{to_find}\s/)
 
-    #Help the bookseller !
-    def self.stockList(listOfArt, listOfCat) end
+      wins = 0
+      draws = 0
+      losses = 0
+      scored = 0
+      conceded = 0
+      points = 0
 
-    #Artificial Rain (retired)
-    def self.artificial_rain(garden) end
+      result = result_sheet.split(',')
+      result.each do |x|
+        next unless x.include? to_find
+
+        data = "#{x} ".scan(/[A-z 76]*. \d* /)
+        data = data.reverse unless data[0].include? to_find
+
+        return "Error(float number):#{x}" if data.length != 2
+
+        first = data[0].scan(/ \d* /)[0].to_i
+        second = data[1].scan(/ \d* /)[0].to_i
+
+        scored += first
+        conceded += second
+        wins += 1 if first > second
+        losses += 1 if first < second
+        draws += 1 if first == second
+        points = wins * 3 + draws
+      end
+      format('%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d', to_find, wins, draws, losses, scored, conceded, points)
+    end
+
+    # Help the bookseller!
+    def self.stockList(listOfArt, listOfCat)
+      return '' if listOfArt.empty? || listOfCat.empty?
+      result = []
+      listOfCat.each do |cat|
+        sum = 0
+        listOfArt.each do |art|
+          sum += art.split(' ')[1].to_i if art[0] == cat
+        end
+        result << "(#{cat} : #{sum})"
+      end
+      result.join(' - ')
+    end
+
+    # Artificial Rain (retired)
+    def self.artificial_rain(garden)
+      max = 0
+      min = 0
+      cur_size = 1
+      (1...garden.length).each do |i|
+        cur_high = garden[i]
+        if cur_high < garden[i - 1]
+          min = i
+        elsif cur_high > garden[i - 1]
+          max = [max, cur_size].max
+          cur_size = i - min
+        end
+        cur_size += 1
+      end
+      [max, cur_size].max
+    end
   end
 end
