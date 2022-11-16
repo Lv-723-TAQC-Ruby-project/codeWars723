@@ -34,6 +34,30 @@ module KulykMariiaSixImpl
       res.join("\r\n")
     end
 
+    def self.stockList(listOfArt, listOfCat)
+
+      list = Hash.new()
+      listOfCat.each{|cat| list[cat] = 0}
+
+      for art in listOfArt
+        for cat in listOfCat
+          if art[0] == cat
+            temp = 0
+            data = art.split(" ")
+            temp = list[cat].to_i + data[1].to_i
+            list[cat] = temp
+          end
+        end
+      end
+
+      return "" if list.values.all? { |value| value == 0 }
+
+      strList = []
+      list.each {|key, value| strList.append("(#{key} : #{value})") }
+      return strList.join(' - ')
+
+    end
+
     def self.f(x)
       x.to_f / (1 + Math.sqrt(1 + x.to_f))
     end

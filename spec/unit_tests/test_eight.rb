@@ -75,7 +75,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [-89, false]
       ].each do |test_data, expect_result|
       it 'Should check if a number is a Wilson prime' do
-        expect(student_impl.am_I_Wilson(test_data).to eql(expect_result))
+        expect(student_impl.am_I_Wilson(test_data)).to eql(expect_result)
       end
       end
     end
