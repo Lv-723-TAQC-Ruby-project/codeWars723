@@ -2,7 +2,6 @@ require './kata/Six'
 
 module BrylAndriiSixImpl
   class SixImpl < Six
-
     #Build a pile of Cubes
     def self.find_nb(m)
       output = 1
@@ -68,7 +67,7 @@ module BrylAndriiSixImpl
     def self.mean(town, data)
       town = data.split("\n").select { |x| x if x.split(':').first == town }[0]
       return -1 if town.nil?
-      arr = town.gsub(/[^\d,-,^.]+/, '')
+      arr = town.gsub(/[^\d,^.]+/, '')
                 .split(',')
       return -1 if arr.size == 0
       arr.map(&:to_f).inject { |sum, el| sum + el }.to_f / arr.size
@@ -78,7 +77,7 @@ module BrylAndriiSixImpl
       average = mean(town, strng)
       town = strng.split("\n").select { |x| x.split(':').first == town }[0]
       return -1 if town.nil?
-      arr = town.gsub(/[^\d,-,^.]+/, '')
+      arr = town.gsub(/[^\d,^.]+/, '')
                 .split(',')
                 .map { |x| (x.to_f - average) ** 2 }
       arr.inject { |sum, el| sum + el }.to_f / arr.size
@@ -119,7 +118,9 @@ module BrylAndriiSixImpl
     end
 
     #Help the bookseller !
-    def self.stockList(listOfArt, listOfCat) end
+    def self.stockList(listOfArt, listOfCat)
+
+    end
 
     #Artificial Rain (retired)
     def self.artificial_rain(garden) end
