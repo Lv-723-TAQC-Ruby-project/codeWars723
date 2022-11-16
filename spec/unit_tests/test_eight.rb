@@ -28,8 +28,8 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [4, 6, 8, 192],
         [7, 14, 26, 2548],
       ].each do |test_data, expect_result|
-      it 'Should get volume of cuboid' do
-        expect(student_impl.get_volume_of_cuboid(test_data)).to eq(expect_result)
+        it 'Should get volume of cuboid' do
+          expect(student_impl.get_volume_of_cuboid(test_data)).to eq(expect_result)
         end
       end
     end
@@ -74,30 +74,30 @@ ListImpl::IMPL.each do |student_name, student_impl|
 
     describe 'Willson primes' do
       [
-        [5, true ],
-        [13, true ],
+        [5, true],
+        [13, true],
         [563, true],
         [45, false],
         [-89, false]
       ].each do |test_data, expect_result|
-      it 'Should check if a number is a Wilson prime' do
-        expect(student_impl.am_I_Wilson(test_data)).to eql(expect_result)
-      end
+        it 'Should check if a number is a Wilson prime' do
+          expect(student_impl.am_I_Wilson(test_data)).to eql(expect_result)
+        end
       end
     end
 
     describe 'Formatting decimal places' do
-      [ 
+      [
         [2.45678, 2.46],
         [1.44098, 1.44],
         [6.35932, 6.36],
-        [0, 0] 
+        [0, 0]
       ].each do |test_data, expect_result|
-      it 'Should format a number to two decimal places' do
-        expect(student_impl.two_decimal_places(test_data)).to eql(expect_result)
+        it 'Should format a number to two decimal places' do
+          expect(student_impl.two_decimal_places(test_data)).to eql(expect_result)
+        end
       end
     end
-
     describe 'Find numbers which are divisible by given number' do
       [
         [[1, 2, 3, 4, 5, 6], 2, [2, 4, 6]],
