@@ -20,8 +20,14 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'Trailing zeros in factorial' do
-
-      it 'Should calculate the number of trailing zeros of n!' do
+      [
+        [0, 0],
+        [6, 1],
+        [30, 7]
+      ].each do |test_data, expect_result|
+        it 'Should find the number of trailing zeros in a factorial of a given number' do
+          expect(student_impl.zeros(test_data)).to eq(expect_result)
+        end
       end
     end
 
