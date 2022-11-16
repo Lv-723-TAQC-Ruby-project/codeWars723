@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Eight'
-
+module OmetiukhSofiiaEightImpl
 class EightImpl < Eight
   def self.litres(time)
     (time / 2).floor
