@@ -13,15 +13,9 @@ module BrylAndriiFiveImpl
     def self.perimeter(num) end
 
     # Which x for that sum?
-    def sum(num) end
+    def self.sum(num) end
 
     # Find the smallest
     def self.smallest(num) end
-
-    #
-    def fib(num) end
-
-    def self.solve(m_arg) end
-
   end
 end

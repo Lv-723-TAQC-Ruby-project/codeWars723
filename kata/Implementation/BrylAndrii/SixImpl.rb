@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require './kata/Six'
 
 module BrylAndriiSixImpl
   class SixImpl < Six
-    #Build a pile of Cubes
+    # Build a pile of Cubes
     def self.find_nb(m)
       output = 1
       check = 0
@@ -16,7 +18,7 @@ module BrylAndriiSixImpl
       -1
     end
 
-    #Easy Balance Checking
+    # Easy Balance Checking
     def self.balance(b)
       clean = b.gsub(/[^0-9a-z \n.]+/i, '') # remove all non-alphanumeric characters
       num = clean.gsub(/[^0-9 \n.]+/i, '') # remove all non-numeric characters
@@ -58,18 +60,18 @@ module BrylAndriiSixImpl
       out.gsub(/\\r\\n/i, "\r\n") # replace \r\n with actual line break
     end
 
-    #Floating-point Approximation (I)
+    # Floating-point Approximation (I)
     def self.f(x)
       x / (1 + Math.sqrt(1 + x))
     end
 
-    #Rainfall
+    # Rainfall
     def self.mean(town, data)
       town = data.split("\n").select { |x| x if x.split(':').first == town }[0]
       return -1 if town.nil?
       arr = town.gsub(/[^\d,^.]+/, '')
                 .split(',')
-      return -1 if arr.size == 0
+      return -1 if arr.size.zero?
       arr.map(&:to_f).inject { |sum, el| sum + el }.to_f / arr.size
     end
 
@@ -83,7 +85,7 @@ module BrylAndriiSixImpl
       arr.inject { |sum, el| sum + el }.to_f / arr.size
     end
 
-    #Ranking NBA teams
+    # Ranking NBA teams
     def self.nba_cup(result_sheet, to_find)
       return '' if to_find == ''
       return format("%s:This team didn't play!", to_find) unless result_sheet.match(/#{to_find}\s/)
@@ -117,12 +119,36 @@ module BrylAndriiSixImpl
       format('%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d', to_find, wins, draws, losses, scored, conceded, points)
     end
 
-    #Help the bookseller !
+    # Help the bookseller!
     def self.stockList(listOfArt, listOfCat)
-
+      return '' if listOfArt.empty? || listOfCat.empty?
+      result = []
+      listOfCat.each do |cat|
+        sum = 0
+        listOfArt.each do |art|
+          sum += art.split(' ')[1].to_i if art[0] == cat
+        end
+        result << "(#{cat} : #{sum})"
+      end
+      result.join(' - ')
     end
 
-    #Artificial Rain (retired)
-    def self.artificial_rain(garden) end
+    # Artificial Rain (retired)
+    def self.artificial_rain(garden)
+      max = 0
+      min = 0
+      cur_size = 1
+      (1...garden.length).each do |i|
+        cur_high = garden[i]
+        if cur_high < garden[i - 1]
+          min = i
+        elsif cur_high > garden[i - 1]
+          max = [max, cur_size].max
+          cur_size = i - min
+        end
+        cur_size += 1
+      end
+      [max, cur_size].max
+    end
   end
 end
