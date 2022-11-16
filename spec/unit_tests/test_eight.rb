@@ -35,8 +35,14 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'Miles per gallon to kilometers per liter' do
-
-      it 'Should convert miles per gallon to kilometers per liter' do
+      [
+        [12, 4.25],
+        [24, 8.50],
+        [36, 12.74]
+      ].each do |test_data, expect_result|
+        it 'Should convert miles per gallon to kilometers per liter' do
+          expect(student_impl.converter(test_data)).to eq(expect_result)
+        end
       end
     end
 
