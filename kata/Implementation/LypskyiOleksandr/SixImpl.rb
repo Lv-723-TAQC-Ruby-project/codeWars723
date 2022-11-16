@@ -10,7 +10,7 @@ module LypskyiOleksandrSixImpl
       number_of_rows = 1
 
       loop do
-        volume += number_of_rows**3
+        volume += number_of_rows ** 3
         if volume >= m
           return volume == m ? number_of_rows : -1
         end
@@ -64,7 +64,7 @@ module LypskyiOleksandrSixImpl
         mean = vals.sum / vals.size
         variance_array = []
         vals.each do |record|
-          variance_array << ((mean - record.to_f)**2)
+          variance_array << ((mean - record.to_f) ** 2)
         end
         variance = variance_array.sum / variance_array.size
         town_wise[town_name] = { 'mean' => mean, 'variance' => variance }
@@ -150,52 +150,53 @@ module LypskyiOleksandrSixImpl
           "#{to_find}:This team didn't play!"
         end
       end
+    end
 
-      # 18. Help the bookseller!
-      def self.stockList(_l, _m)
-        return '' if listOfArt.empty? || listOfCat.empty?
+    # 18. Help the bookseller!
+    def self.stockList(listOfArt, listOfCat)
+      return '' if listOfArt.empty? || listOfCat.empty?
 
-        books_results = {}
-        listOfCat.each do |cat|
-          books_results[cat] = 0
-          listOfArt.each do |book|
-            book_category, quantity_of_books = book.split(' ')
-            books_results[cat] += quantity_of_books.to_i if book_category[0] == cat
-          end
+      books_results = {}
+      listOfCat.each do |cat|
+        books_results[cat] = 0
+        listOfArt.each do |book|
+          book_category, quantity_of_books = book.split(' ')
+          books_results[cat] += quantity_of_books.to_i if book_category[0] == cat
         end
-
-        array_to_return = []
-        books_results.each do |key, value|
-          array_to_return << "(#{key} : #{value})"
-        end
-
-        array_to_return.join(' - ')
       end
 
-      # 19. Artificial Rain
-      def artificial_rain(garden)
-        left = 0
-        longest_section = 0
-        current_section = 1
-        (1...garden.length).each do |i|
-          if garden[i] < garden[i - 1]
-            left = i
-          elsif garden[i] > garden[i - 1]
-            longest_section = if longest_section < current_section
-                                current_section
-                              else
-                                longest_section
-                              end
-            current_section = i - left
-          end
-          current_section += 1
+      array_to_return = []
+      books_results.each do |key, value|
+        array_to_return << "(#{key} : #{value})"
+      end
+
+      array_to_return.join(' - ')
+    end
+
+    # 19. Artificial Rain
+    def artificial_rain(garden)
+      left = 0
+      longest_section = 0
+      current_section = 1
+      (1...garden.length).each do |i|
+        if garden[i] < garden[i - 1]
+          left = i
+        elsif garden[i] > garden[i - 1]
+          longest_section = if longest_section < current_section
+                              current_section
+                            else
+                              longest_section
+                            end
+          current_section = i - left
         end
-        if longest_section > current_section
-          longest_section
-        else
-          current_section
-        end
+        current_section += 1
+      end
+      if longest_section > current_section
+        longest_section
+      else
+        current_section
       end
     end
   end
 end
+

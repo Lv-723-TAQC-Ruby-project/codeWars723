@@ -26,9 +26,9 @@ ListImpl::IMPL.each do |student_name, student_impl|
             it 'Should make balance checking' do
                 expect(student_impl.balance($b)).to eql($bsol)
             end
-            
+
         end
-        
+
         describe 'Rainfall' do
             data =
               "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" + "\n" +
@@ -57,6 +57,20 @@ ListImpl::IMPL.each do |student_name, student_impl|
             it '(mean) should return the average of rainfall for the town and strng data or data1; (variance) return the variance of rainfall for the town and strng data or data1' do
 
             end
+
+        end
+
+        describe 'Help the bookseller' do
+          [
+            [["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"], %w[A B], '(A : 200) - (B : 1140)'],
+            [["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"], %w[A B C D], '(A : 0) - (B : 1290) - (C : 515) - (D : 600)'],
+            [["CBART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"], %w[A B C W], '(A : 0) - (B : 114) - (C : 70) - (W : 0)'],
+            [["ROXANNE 102", "RHODODE 123", "BKWRKAA 125", "BTSQZFG 239", "DRTYMKH 060"], %w[B R D X], '(B : 364) - (R : 225) - (D : 60) - (X : 0)']
+          ].each do|list_of_art, list_of_cat, result|
+            it 'Should return the string with the categories and the sum of the unique book of category' do
+              expect(student_impl.stockList(list_of_art, list_of_cat)).to eq result
+            end
+          end
 
         end
 
