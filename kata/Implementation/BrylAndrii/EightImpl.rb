@@ -30,7 +30,7 @@ module BrylAndriiEightImpl
     end
 
     def self.count_positives_sum_negatives(lst)
-      if lst == []
+      if lst == [] or lst == nil
         []
       else
         [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
