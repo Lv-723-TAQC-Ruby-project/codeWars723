@@ -2,10 +2,24 @@
 
 require './utils/TaskRunner'
 
-students = Dir['kata/Implementation/*']
+students = Dir['kata/Implementation/**']
 students.map { |string| string.slice! 'kata/Implementation/' }
+students.delete('Implementation.rb')
 
 runner = TaskRunner.new
+
+impl = {
+  'BrylAndrii' => Implementation::BrylAndrii,
+  'FedykSvyatoslav' => Implementation::FedykSvyatoslav,
+  'KhudoBohdan' => Implementation::KhudoBohdan,
+  'KmytiukNatalyia' => Implementation::KmytiukNatalyia,
+  'KovalyovVladyslav' => Implementation::KovalyovVladyslav,
+  'KulykMariia' => Implementation::KulykMariia,
+  'LypskyiOleksandr' => Implementation::LypskyiOleksandr,
+  'OmetiukhSofiia' => Implementation::OmetiukhSofiia,
+  'StanislavKovalov' => Implementation::StanislavKovalov
+}
+
 methods = {
   1 => runner.method(:litres),
   2 => runner.method(:run_get_volume_of_cuboid),
@@ -26,9 +40,9 @@ methods = {
   17 => runner.method(:nba_cup),
   18 => runner.method(:stockList),
   19 => runner.method(:artificial_rain),
-  20 => runner.method(:is_prime),
-  21 => runner.method(:gap),
-  22 => runner.method(:zeros),
+  20 => runner.method(:gap),
+  21 => runner.method(:zeros),
+  22 => runner.method(:perimeter),
   23 => runner.method(:solve),
   24 => runner.method(:smallest)
 }
@@ -49,7 +63,7 @@ while t
     puts 'Wrong student number!'
     break
   end
-  runner.set_user(students[student_number - 1])
+  runner.user = impl[students[student_number - 1]]
 
   system('cls')
   puts 'Please, input task number [1-24]: '
