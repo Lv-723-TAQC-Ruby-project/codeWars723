@@ -91,7 +91,8 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [2.45678, 2.46],
         [1.44098, 1.44],
         [6.35932, 6.36],
-        [0, 0] ].each do |test_data, expect_result|
+        [0, 0] 
+      ].each do |test_data, expect_result|
       it 'Should format a number to two decimal places' do
         expect(student_impl.two_decimal_places(test_data)).to eql(expect_result)
       end
