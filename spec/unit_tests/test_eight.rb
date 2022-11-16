@@ -98,10 +98,6 @@ ListImpl::IMPL.each do |student_name, student_impl|
       end
     end
 
-      it 'Should format a number to two decimal places' do
-      end
-    end
-
     describe 'Find numbers which are divisible by given number' do
       [
         [[1, 2, 3, 4, 5, 6], 2, [2, 4, 6]],
