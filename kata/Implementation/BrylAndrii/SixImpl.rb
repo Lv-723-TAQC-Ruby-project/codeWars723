@@ -65,69 +65,56 @@ module BrylAndriiSixImpl
     end
 
     #Rainfall
-    #not fully working
-    def mean(town, strng)
-      if town == ""
-        return -1
-      end
-      if strng == ""
-        return -1
-      end
-      if strng.include? town
-        data = strng.split("\n")
-        data.each do |x|
-          if x.include? town
-            x = x.split(":")
-            x = x[1]
-            x = x.split(",")
-            sum = 0
-            x.each do |y|
-              y = y.split(" ")
-              sum += y[1].to_f
-            end
-            return (sum / x.length).round(2)
-          end
-        end
-      else
-        return -1
-      end
+    def mean(town, data)
+      town = data.split("\n").select { |x| x if x.split(':').first == town }[0]
+      return -1 if town.nil?
+      arr = town.gsub(/[^\d,-,^.]+/, '')
+                .split(',')
+      return -1 if arr.size == 0
+      arr.map(&:to_f).inject { |sum, el| sum + el }.to_f / arr.size
     end
 
     def variance(town, strng)
-      if town == ""
-        return -1
-      end
-      if strng == ""
-        return -1
-      end
-      if strng.include? town
-        data = strng.split("\n")
-        data.each do |x|
-          if x.include? town
-            x = x.split(":")
-            x = x[1]
-            x = x.split(",")
-            sum = 0
-            x.each do |y|
-              y = y.split(" ")
-              sum += y[1].to_f
-            end
-            mean = sum / x.length
-            sum = 0
-            x.each do |y|
-              y = y.split(" ")
-              sum += (y[1].to_f - mean) ** 2
-            end
-            return (sum / x.length).round(2)
-          end
-        end
-      else
-        return -1
-      end
+      average = mean(town, strng)
+      town = strng.split("\n").select { |x| x.split(':').first == town }[0]
+      return -1 if town.nil?
+      arr = town.gsub(/[^\d,-,^.]+/, '')
+                .split(',')
+                .map { |x| (x.to_f - average) ** 2 }
+      arr.inject { |sum, el| sum + el }.to_f / arr.size
     end
 
     #Ranking NBA teams
-    def nba_cup(result_sheet, to_find) end
+    def nba_cup(result_sheet, to_find)
+      return '' if to_find == ''
+      return format("%s:This team didn't play!", to_find) unless result_sheet.match(/#{to_find}\s/)
+
+      wins = 0
+      draws = 0
+      losses = 0
+      scored = 0
+      conceded = 0
+
+      result = result_sheet.split(',')
+      result.each do |x|
+        next unless x.include? to_find
+
+        data = "#{x} ".scan(/[A-z 76]*. \d* /)
+        data = data.reverse unless data[0].include? to_find
+
+        return "Error(float number):#{x}" if data.length != 2
+
+        first = data[0].scan(/ \d* /)[0].to_i
+        second = data[1].scan(/ \d* /)[0].to_i
+
+        scored += first
+        conceded += second
+        wins += 1 if first > second
+        losses += 1 if first < second
+        draws += 1 if first == second
+      end
+      format('%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d', to_find, wins, draws, losses, scored, conceded, (wins * 3 + draws))
+    end
 
     #Help the bookseller !
     def stockList(listOfArt, listOfCat) end
