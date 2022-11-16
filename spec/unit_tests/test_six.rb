@@ -28,6 +28,14 @@ ListImpl::IMPL.each do |student_name, student_impl|
             end
             
         end
+        
+        describe 'Rainfall' do
+
+            it '(mean) should return the average of rainfall for the town and strng data or data1; (variance) return the variance of rainfall for the town and strng data or data1' do
+
+            end
+
+        end
 
         describe 'Artificial Rain' do
 
