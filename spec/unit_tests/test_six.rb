@@ -55,7 +55,9 @@ teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks
          "Detroit Pistons,Utah Jazz,Miami Heat,Charlotte Hornets,Toronto Raptors,Orlando Magic,Washington Wizards,"\
          "Golden State Warriors,Dallas Maver"
         it 'should return team name,wins,losses,draws,scores,points,conceded points' do
-          expect(student_impl.nba_cup(r,towns)).to eq result 
+          expect(student_impl.nba_cup(r,"Boston Celtics")).to eql("Boston Celtics:W=4;D=0;L=0;Scored=403;Conceded=350;Points=12")
+          expect(student_impl.nba_cup(r,"Boston Celt")).to eql("Boston Celt:This team didn't play!")
+          expect(student_impl.nba_cup(r,"Charlotte Hornets")).to eql("Charlotte Hornets:W=2;D=0;L=2;Scored=373;Conceded=382;Points=6")  
         end
     end
 
