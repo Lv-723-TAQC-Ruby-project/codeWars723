@@ -7,27 +7,27 @@ ListImpl::IMPL.each do |student_name, student_impl|
   RSpec.describe student_impl do
 
     describe 'Keep Hydrated' do
-      10.times.collect do
-        test_data = rand(1.0...50.0)
-        expect_result = (test_data * 0.5).floor
-        it 'Should return the number of litres rounded to the smallest number' do
-          expect(student_impl.litres(test_data)).to eq(expect_result)
-        end
-      end
-
-      #[
-      #  [2, 1],
-      #  [1.4, 0],
-      #  [12.3, 6],
-      #  [0.82, 0],
-      #  [11.8, 5],
-      #  [1787, 893],
-      #  [0, 0]
-      #].each do |test_data, expect_result|
+      #10.times.collect do
+      #  test_data = rand(1.0...50.0)
+      #  expect_result = (test_data * 0.5).floor
       #  it 'Should return the number of litres rounded to the smallest number' do
       #    expect(student_impl.litres(test_data)).to eq(expect_result)
       #  end
       #end
+
+      [
+        [2, 1],
+        [1.4, 0],
+        [12.3, 6],
+        [0.82, 0],
+        [11.8, 5],
+        [1787, 893],
+        [0, 0]
+      ].each do |test_data, expect_result|
+        it 'Should return the number of litres rounded to the smallest number' do
+          expect(student_impl.litres(test_data)).to eq(expect_result)
+        end
+      end
     end
 
     describe 'Volume of a Cuboid' do
