@@ -76,8 +76,15 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'Convert a String to a Number' do
-
-      it 'Should convert a string to a number' do
+      [
+        ["1234", 1234],
+        ["605" , 605],
+        ["1405", 1405],
+        ["-7", -7]
+      ].each do |data_test, result|
+        it 'Should convert a string to a number' do
+          expect(student_impl.string_to_number(data_test)).to eql(result)
+        end
       end
     end
 

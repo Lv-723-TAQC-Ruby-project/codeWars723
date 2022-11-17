@@ -120,5 +120,18 @@ teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks
 
       end
     end
+
+    describe 'Floating-point Approximation' do
+      [
+        [[2], 1],
+        [[1, 2, 1, 2, 1], 3],
+        [[4, 2, 3, 3, 2], 4]
+      ].each do |test_data, expected_result|
+        it 'Should return digits with floating-point approximation ' do
+          expect(student_impl.f(test_data)).to eql(expected_result)
+        end
+      end
+
+    end
   end
 end

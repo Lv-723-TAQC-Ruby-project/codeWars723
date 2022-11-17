@@ -28,7 +28,7 @@ module StanislavKovalovSixImpl
     end
 
     def self.f(x)
-      x.to_f / (1 + Math.sqrt(1 + x.to_f))
+      x / (1 + Math.sqrt(1 + x))
     end
 
     def self.mean(town, str)
