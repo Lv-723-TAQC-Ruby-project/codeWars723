@@ -38,14 +38,21 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'Which x for that sum?' do
-
-      it 'Should find all values of x for which the given function is an integer' do
+      [
+        [2.00, 5.000000000000e-01],
+        [4.00, 6.096117967978e-01],
+        [5.00, 6.417424305044e-01]
+      ].each do |test_data, expect_result|
+        it 'Should find all values of x for which the given function is an integer' do
+          expect(student_impl.zeros(test_data)).to eq(expect_result)
+          #not finished
+        end
       end
     end
 
     describe 'Find the smallest' do
-
       it 'Should find the smallest integer n such that n^2 is greater than a given integer p' do
+
       end
     end
   end

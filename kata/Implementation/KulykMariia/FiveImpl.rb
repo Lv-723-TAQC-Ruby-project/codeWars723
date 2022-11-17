@@ -4,7 +4,18 @@ require './kata/Five'
 
 module KulykMariiaFiveImpl
   class FiveImpl < Five
-    def zeros(n)
+
+    # Gap in Primes
+    def self.gap(gap, low, high)
+      primes_between(low,high).each_cons(2).find { |(a,b)| b-a == gap }
+    end
+
+    def self.primes_between(low,high)
+      Prime.each(high).select { |prime| prime >= low }
+    end
+
+    # Trailing zeros in factorial
+    def self.zeros(n)
       s = 0
       while n >= 5
         s += n / 5
@@ -13,7 +24,8 @@ module KulykMariiaFiveImpl
       s
     end
 
-    def perimeter(n)
+    # Perimeter of squares in a rectangle
+    def self.perimeter(n)
       a = 1
       b = 1
       count = 2
@@ -26,7 +38,15 @@ module KulykMariiaFiveImpl
       4 * sum
     end
 
-    def smallest(n)
+    # Which x for that sum?
+    def self.solve(m)
+      b = -2 * m - 1
+
+      (-b - Math.sqrt(b ** 2 - 4 * m * m)) / (2 * m)
+    end
+
+    # Find the smallest
+    def self.smallest(n)
       smallest = [n]
 
       n.to_s.length.times do |i|
