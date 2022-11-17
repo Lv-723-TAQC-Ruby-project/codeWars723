@@ -61,7 +61,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [[1, 2, 3, 4, 5, 6], [1, 4, 9, 2, 25, 36]]
       ].each do |test_data, expect_result|
         it 'Should square root or square' do
-          expect (student_impl.square_or_square_root(test_data)).to eq(expect_result)
+          expect(student_impl.square_or_square_root(test_data)).to eq(expect_result)
         end
       end
     end
