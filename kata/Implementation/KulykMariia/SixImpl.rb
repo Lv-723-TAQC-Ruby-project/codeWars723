@@ -62,7 +62,6 @@ module KulykMariiaSixImpl
     end
 
     # African rain
-
     def self.artificial_rain(garden)
       l = Array.new
       r = Array.new
@@ -100,7 +99,6 @@ module KulykMariiaSixImpl
     end
 
     #Floating-point Approximation (I)
-
     def self.f(x)
       x.to_f / (1 + Math.sqrt(1 + x.to_f))
     end
