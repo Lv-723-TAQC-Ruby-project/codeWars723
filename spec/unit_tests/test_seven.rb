@@ -24,13 +24,13 @@ ListImpl::IMPL.each do |student_name, student_impl|
       end
     end
 
-    describe 'Where is Vasya?' do
+     describe 'Where is Vasya?' do
       [
-        [[3, 1, 1], 2],
-        [[5, 2, 3], 3]
-      ].each do |test_data, expect_result|
+        [3, 1, 1, 2],
+        [5, 2, 3, 3]
+      ].each do |test_data1, test_data2, test_data3, expect_result|
         it 'Should calculate all the possible positions of Vasya' do
-          expect(student_impl.where_is_he(test_data)).to eq(expect_result)
+          expect(student_impl.where_is_he(test_data1, test_data2, test_data3)).to eq(expect_result)
         end
       end
     end
