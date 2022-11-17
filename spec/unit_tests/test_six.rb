@@ -133,5 +133,19 @@ teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks
       end
 
     end
+
+    describe 'Build a pile of Cubes' do
+      [
+        [4183059834009, 2022],
+        [24723578342962, -1],
+        [135440716410000, 4824],
+        [40539911473216, 3568]
+      ].each do |test_data, expect_result|
+        it 'Should the building a pile of Cubes' do
+          expect (student_impl.find_nb(test_data)).to eq(expect_result)
+        end
+      end
+    end
+
   end
 end

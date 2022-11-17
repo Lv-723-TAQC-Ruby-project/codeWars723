@@ -56,8 +56,14 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'To square root or no to square' do
-
-      it 'Should square root or square' do
+      [
+        [[4, 3, 9, 7, 2, 1], [2, 9, 3, 49, 4, 1]],
+        [[100, 101, 5, 5, 1, 1], [10, 10201, 25, 25, 1, 1]],
+        [[1, 2, 3, 4, 5, 6], [1, 4, 9, 2, 25, 36]]
+      ].each do |test_data, expect_result|
+        it 'Should square root or square' do
+          expect (student_impl.square_or_square_root(test_data)).to eq(expect_result)
+        end
       end
     end
 

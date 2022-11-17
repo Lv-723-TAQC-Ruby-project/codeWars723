@@ -32,8 +32,16 @@ ListImpl::IMPL.each do |student_name, student_impl|
     end
 
     describe 'Perimeter of squares in a rectangle' do
-
-      it 'Should calculate the perimeter of the squares in a rectangle when there are n + 1 squares side by side' do
+      [
+        [5, 80],
+        [7, 216],
+        [20, 114624],
+        [30, 14098308],
+        [100, 6002082144827584333104]
+      ].each do |test_data, expect_result|
+        it 'Should calculate the perimeter of the squares in a rectangle when there are n + 1 squares side by side' do
+          expect(student_impl.perimeter(test_data)).to eq(expect_result)
+        end
       end
     end
 
