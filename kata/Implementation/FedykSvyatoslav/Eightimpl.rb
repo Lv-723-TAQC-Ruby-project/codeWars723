@@ -51,6 +51,7 @@ module FedykSvyatoslavEightImpl
     end
 
     def self.two_decimal_places(n)
+      return 0 if n == 0
       # return n.round(2)
       ('%.2f' % n).to_f
     end
