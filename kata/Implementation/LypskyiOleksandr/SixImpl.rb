@@ -87,7 +87,7 @@ module LypskyiOleksandrSixImpl
     end
 
     # 17. Ranking NBA
-def nba_cup(result_sheet, to_find)
+def self.nba_cup(result_sheet, to_find)
   return '' if to_find == ''
 
   team_results = {}
