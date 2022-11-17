@@ -22,14 +22,13 @@ module KhudoBohdanSixImpl
       original_balance = num_arr[0]
 
       int = num.gsub(/\d*[.]\d+/i, '')
-      int = int.gsub(/ /i, '')
-      arr_int = int.split(' ').to_a
+      arr_int = int.gsub(/ /i, '').split(' ').to_a
 
       words = bal.gsub(/[^a-z \n]+/i, '')
       words_arr = words.gsub(/ /i, '').split(' ').to_a
 
-      float = num.gsub(/^[\d+.\n]+/i, '')
-      float = float.gsub(/ /i, '')
+      float = num.gsub(/^ +/i, '')
+      float = float.gsub(/^[\d+.\n]+/i, '')
       arr_float = float.split(' ').to_a
       j = 0
       while j < arr_float.count
@@ -44,12 +43,10 @@ module KhudoBohdanSixImpl
       while i < arr_int.count
         current_balance -= arr_float[i].to_f
         sum += arr_float[i].to_f
-        result_string += "#{arr_int[i]} #{words_arr[i]} #{arr_float[i]} Balance " + format('%.2f',
-                                                                                           current_balance) + "\r\n"
+        result_string += "#{arr_int[i]} #{words_arr[i]} #{arr_float[i]} Balance #{format('%.2f', current_balance)}\r\n"
         i += 1
       end
-      result_string += 'Total expense  ' + format('%.2f',
-                                                  sum) + "\r\nAverage expense  " + format('%.2f', sum / arr_float.count)
+      result_string += "Total expense  #{format('%.2f', sum)}\r\nAverage expense  #{format('%.2f', sum / arr_float.count)}"
 
       result_string
     end
