@@ -39,10 +39,7 @@ module KmytiukNatalyiaEightImpl
     end
 
     def self.am_i_wilson(p)
-      (2..Math.sqrt(p).floor).each do |m|
-        return false if (p % m).zero?
-      end
-      true
+      [5, 13, 563].include? p
     end
 
     def self.two_decimal_places(n)
