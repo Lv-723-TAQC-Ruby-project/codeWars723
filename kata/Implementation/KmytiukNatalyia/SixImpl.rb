@@ -38,8 +38,7 @@ module KmytiukNatalyiaSixImpl
         balance -= inputs[i]
         string + "#{'%.2f' % inputs[i]} Balance #{data}"
       end
-      res << "Total expense  #{'%.2f' % total}"
-      res << "Average expense  #{'%.2f' % average}"
+      res.append "Total expense  #{'%.2f'% total}\r\nAverage expense  #{'%.2f'% average}"
       num + res.join("\r\n")
     end
 
