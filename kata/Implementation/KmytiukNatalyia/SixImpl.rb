@@ -22,24 +22,14 @@ module KmytiukNatalyiaSixImpl
 
     # 14. Easy balance checking
     def self.balance(b)
-      inputs = b.scan(/\d+\.\d+/).map!(&:to_f)
-      balance = inputs.shift
-      total = inputs.inject(:+).round(2)
-      average = (total / inputs.size).round(2)
-
-      num = "Original Balance: #{format('%.2f', balance)}\r\n"
-
-      res = b.scan(/[a-zA-Z]|\d|\.|\s/).join('').split("\n").reject(&:empty?)
-      res.shift
-
-      res = res.each_with_index.map do |string, i|
-        string = string.gsub(/\d+\.\d+/, '')
-        data = format('%.2f', (balance - inputs[i])).to_s
-        balance -= inputs[i]
-        string + "#{'%.2f' % inputs[i]} Balance #{data}"
-      end
-      res.append "Total expense  #{'%.2f'% total}\r\nAverage expense  #{'%.2f'% average}"
-      num + res.join("\r\n")
+      b = b.gsub(/[^a-z0-9\s.]/i, '').gsub(/(\n)(\n*)/, '\1').gsub(/(\d+\.\d+)$/) { '%.2f' % ::Regexp.last_match(1) }
+    ns = b.scan(/\d+\.\d+$/)
+      ns.map!.with_index { |n, i| i.zero? ? n : '%.2f' % ns[i - 1].to_f.send('-', ns[i].to_f) }
+      c = b.split("\n").map.with_index do |l, i|
+        i.zero? ? "Original Balance: #{l}" : "#{l} Balance #{ns[i]}"
+      end.join("\r\n")
+      e = b.scan(/\d+\.\d+$/)[1..].map(&:to_f)
+      "#{c}\r\nTotal expense  #{'%.2f' % e.sum}\r\nAverage expense  #{format('%.2f', (e.sum / e.size))}"
     end
 
     # 15. Floating-point Approximation (I)
@@ -113,9 +103,6 @@ module KmytiukNatalyiaSixImpl
           win += 1
         elsif num1 < num2
           l += 1
-        else
-          num1 == num2
-          d += 1
         end
         points = win * 3 + d
       end

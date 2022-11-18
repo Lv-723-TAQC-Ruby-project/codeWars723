@@ -4,18 +4,13 @@ require './kata/Five'
 
 module KmytiukNatalyiaFiveImpl
   class FiveImpl < Five
-    def self.gap(g, m, n)
-      m += 1 if m.even?
-      (m..n).each do |i|
-        next unless is_prime(i)
-        return [i, i + g] if is_prime(i + g) && (i + 1..i + g - 1).none? { |num| is_prime num }
-      end
-      nil
+    # Gap in Primes
+    def self.gap(gap, low, high)
+      primes_between(low,high).each_cons(2).find { |(a,b)| b-a == gap }
     end
 
-    def self.is_prime(n)
-      (2..Math.sqrt(n).round).each { |i| return false if (n % i).zero? }
-      true
+    def self.primes_between(low,high)
+      Prime.each(high).select { |prime| prime >= low }
     end
   
 
@@ -47,8 +42,6 @@ module KmytiukNatalyiaFiveImpl
 
     def self.solve(m)
       return (2 * m + 1 - (4 * m + 1) ** 0.5) / (2 * m)
-      puts solve(8)
-      puts solve(2)
     end
 
     def self.smallest(n)
