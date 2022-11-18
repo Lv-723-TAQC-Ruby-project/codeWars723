@@ -30,6 +30,8 @@ module LypskyiOleksandrSixImpl
         next if i.empty?
 
         temp_array = i.split
+        next if temp_array[2].nil? 
+        
         price_of_item = temp_array[2].gsub(/[^0-9. ]/i, '').to_f
         total_expense += price_of_item
         total_items += 1
