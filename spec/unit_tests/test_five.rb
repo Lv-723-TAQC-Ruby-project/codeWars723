@@ -52,7 +52,9 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [5.00, 6.417424305044e-01]
       ].each do |test_data, expect_result|
         it 'Should find all values of x for which the given function is an integer' do
-          expect(student_impl.zeros(test_data)).to eq(expect_result)
+          temp = (student_impl.solve(test_data) - expect_result).abs()
+          merr = 1e-12
+          expect(temp).to be <= merr
           #not finished
         end
       end
