@@ -4,14 +4,13 @@ require './kata/Six'
 
 module KulykMariiaSixImpl
   class SixImpl < Six
-
     # Build a pile of Cubes
     def self.find_nb(m)
       n = 1
       sum = 1
       while sum.to_f < m.to_f
         n += 1
-        sum += n ** 3
+        sum += n**3
       end
       sum == m ? n : -1
     end
@@ -40,86 +39,86 @@ module KulykMariiaSixImpl
     # Rainfall
     def self.extract_numbers(town, data_strng)
       town_data = data_strng.split("\n")
-      record = town_data.select { |line| line.split(":").shift == town }.join
+      record = town_data.select { |line| line.split(':').shift == town }.join
       return -1 if record == ''
+
       yield record.scan(/\d+\.\d+/).map(&:to_f)
     end
 
     def self.mean(town, data_strng)
       extract_numbers(town, data_strng) do |record|
-        record.reduce(:+)/record.size
+        record.reduce(:+) / record.size
       end
     end
 
     def self.variance(town, data_strng)
       extract_numbers(town, data_strng) do |record|
         mean = mean(town, data_strng)
-        record.map { |rainfall| (rainfall - mean)**2 }.reduce(:+)/record.size
+        record.map { |rainfall| (rainfall - mean)**2 }.reduce(:+) / record.size
       end
     end
 
     # Help the booksellers
     def self.stockList(listOfArt, listOfCat)
-
-      list = Hash.new()
+      list = {}
       listOfCat.each { |cat| list[cat] = 0 }
 
-      for art in listOfArt
-        for cat in listOfCat
-          if art[0] == cat
-            temp = 0
-            data = art.split(" ")
-            temp = list[cat].to_i + data[1].to_i
-            list[cat] = temp
-          end
+      listOfArt.each do |art|
+        listOfCat.each do |cat|
+          next unless art[0] == cat
+
+          temp = 0
+          data = art.split(' ')
+          temp = list[cat].to_i + data[1].to_i
+          list[cat] = temp
         end
       end
 
-      return "" if list.values.all? { |value| value == 0 }
+      return '' if list.values.all?(&:zero?)
 
       strList = []
       list.each { |key, value| strList.append("(#{key} : #{value})") }
-      return strList.join(' - ')
+      strList.join(' - ')
     end
 
     # African rain
     def self.artificial_rain(garden)
-      l = Array.new
-      r = Array.new
-      for i in 0..(garden.length - 1)
+      l = []
+      r = []
+      (0..(garden.length - 1)).each do |_i|
         l << 0
         r << 0
       end
-      if garden.length == 1
+      case garden.length
+      when 1
         return 1
-      elsif garden.length == 0
+      when 0
         return 0
       end
-      for i in (1..(garden.length - 1))
-        if garden[i - 1] <= garden[i]
-          l[i] = 1 + l[i - 1]
-        else
-          l[i] = 0
-        end
+
+      (1..(garden.length - 1)).each do |i|
+        l[i] = if garden[i - 1] <= garden[i]
+                 1 + l[i - 1]
+               else
+                 0
+               end
       end
-      for i in (1..(garden.length - 1))
+      (1..(garden.length - 1)).each do |i|
         i2 = garden.length - 1 - i
-        if garden[i2 + 1] <= garden[i2]
-          r[i2] = 1 + r[i2 + 1]
-        else
-          r[i2] = 0
-        end
+        r[i2] = if garden[i2 + 1] <= garden[i2]
+                  1 + r[i2 + 1]
+                else
+                  0
+                end
       end
       max = 0
-      for i in (0..(garden.length - 1))
-        if l[i] + r[i] + 1 > max
-          max = l[i] + r[i] + 1
-        end
+      (0..(garden.length - 1)).each do |i|
+        max = l[i] + r[i] + 1 if l[i] + r[i] + 1 > max
       end
-      return max
+      max
     end
 
-    #Floating-point Approximation (I)
+    # Floating-point Approximation (I)
     def self.f(x)
       x.to_f / (1 + Math.sqrt(1 + x.to_f))
     end
@@ -129,29 +128,27 @@ module KulykMariiaSixImpl
       table = {}
       games = result_sheet.split(',')
       games.each do |game|
-        if game.include?('.')
-          return "Error(float number):#{game}"
-        end
+        return "Error(float number):#{game}" if game.include?('.')
         next unless game.include?(name_team)
 
         divide_to_elements(game, name_team, table)
       end
-      return "" if name_team.empty?
-      return "#{name_team}:This team didn't play!" if (!table[name_team]) && (!name_team.empty?)
+      return '' if name_team.empty?
+      return "#{name_team}:This team didn't play!" if (!table[name_team]) && !name_team.empty?
 
-      if table[name_team]
-        "#{name_team}:\
+      return unless table[name_team]
+
+      "#{name_team}:\
       W=#{table[name_team][:W]};\
       D=#{table[name_team][:D]};\
       L=#{table[name_team][:L]};\
       Scored=#{table[name_team][:Scored]};\
       Conceded=#{table[name_team][:Conceded]};\
       Points=#{table[name_team][:Points]}"
-      end
     end
 
-    def self.divide_to_elements(game, name_team, table)
-      divide = game.split(' ').reject { |el| el.count('a-zA-Z') != 0 }
+    def self.divide_to_elements(game, _name_team, table)
+      divide = game.split(' ').select { |el| el.count('a-zA-Z').zero? }
       score1 = divide[0].to_i
       score2 = divide[1].to_i
       team1 = game.split(" #{score1}").first
@@ -184,6 +181,5 @@ module KulykMariiaSixImpl
         table[team1][:Conceded] += score2
       end
     end
-
   end
 end

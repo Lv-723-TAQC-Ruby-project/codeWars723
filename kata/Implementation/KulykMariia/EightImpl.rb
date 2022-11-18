@@ -4,7 +4,6 @@ require './kata/Eight'
 
 module KulykMariiaEightImpl
   class EightImpl < Eight
-
     # Keep Hydrated!
     def self.litres(time)
       (time * 0.5).floor
@@ -24,7 +23,7 @@ module KulykMariiaEightImpl
     def self.square_or_square_root(arr)
       arr.map do |n|
         sqrt = Math.sqrt(n)
-        (sqrt % 1).zero? ? sqrt : n ** 2
+        (sqrt % 1).zero? ? sqrt : n**2
       end
     end
 
@@ -45,7 +44,7 @@ module KulykMariiaEightImpl
 
     # Convert a String to a Number
     def self.string_to_number(s)
-       s.to_i
+      s.to_i
     end
 
     # Willson primes
@@ -55,13 +54,12 @@ module KulykMariiaEightImpl
 
     # Formatting decimal places
     def self.two_decimal_places(n)
-       n.round(2)
+      n.round(2)
     end
 
     # Find numbers which are divisible by given number
     def self.divisible_by(numbers, divisor)
-        numbers.select { |n| (n % divisor).zero? }
+      numbers.select { |n| (n % divisor).zero? }
     end
-    
   end
 end

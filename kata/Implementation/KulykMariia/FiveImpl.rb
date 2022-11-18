@@ -4,33 +4,32 @@ require './kata/Five'
 
 module KulykMariiaFiveImpl
   class FiveImpl < Five
-
     # Gap in Primes
     def self.gap(gap, low, high)
-      primes_between(low,high).each_cons(2).find { |(a,b)| b-a == gap }
+      primes_between(low, high).each_cons(2).find { |(a, b)| b - a == gap }
     end
 
-    def self.primes_between(low,high)
+    def self.primes_between(low, high)
       Prime.each(high).select { |prime| prime >= low }
     end
 
     # Trailing zeros in factorial
-    def self.zeros(n)
+    def self.zeros(num)
       s = 0
-      while n >= 5
-        s += n / 5
-        n /= 5
+      while num >= 5
+        s += num / 5
+        num /= 5
       end
       s
     end
 
     # Perimeter of squares in a rectangle
-    def self.perimeter(n)
+    def self.perimeter(num)
       a = 1
       b = 1
       count = 2
       sum = 2
-      while count <= n.to_i
+      while count <= num.to_i
         a, b = b, a + b
         count += 1
         sum += b
@@ -42,7 +41,7 @@ module KulykMariiaFiveImpl
     def self.solve(m)
       b = -2 * m - 1
 
-      (-b - Math.sqrt(b ** 2 - 4 * m * m)) / (2 * m)
+      (-b - Math.sqrt(b**2 - 4 * m * m)) / (2 * m)
     end
 
     # Find the smallest

@@ -4,7 +4,6 @@ require './kata/Seven'
 
 module KulykMariiaSevenImpl
   class SevenImpl < Seven
-
     # Looking for a benefactor
     def self.new_avg(arr, newavg)
       result = (arr.length + 1) * newavg - arr.reduce(0) { |sum, n| sum + n }
@@ -26,9 +25,8 @@ module KulykMariiaSevenImpl
     end
 
     # Where is Vasya?
-    def self.where_is_he(p, bef, aft)
-      p + 1 - [bef + 1, p - aft].max
+    def self.where_is_he(pos, bef, aft)
+      pos + 1 - [bef + 1, pos - aft].max
     end
-
   end
 end
