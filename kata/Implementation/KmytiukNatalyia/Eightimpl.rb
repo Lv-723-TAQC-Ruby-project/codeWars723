@@ -38,10 +38,10 @@ module KmytiukNatalyiaEightImpl
       [positives.count, negatives.sum]
     end
 
-    def self.am_i_wilson(p)
+    def self.am_I_Wilson(p)
       [5, 13, 563].include? p
     end
-
+    
     def self.two_decimal_places(n)
       n.round(2)
     end
