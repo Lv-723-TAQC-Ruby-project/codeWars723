@@ -6,3 +6,4 @@ source "https://rubygems.org"
 gem "rspec"
 gem "prime"
 gem 'rubocop', group: 'development'
+gem 'simplecov', require: false, group: :test
