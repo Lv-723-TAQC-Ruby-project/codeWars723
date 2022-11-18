@@ -39,7 +39,7 @@ module KmytiukNatalyiaEightImpl
     end
 
     def self.am_i_wilson(p)
-      [5, 13, 563].include? p
+      [5, 13, 563].include?p
     end
 
     def self.two_decimal_places(n)
