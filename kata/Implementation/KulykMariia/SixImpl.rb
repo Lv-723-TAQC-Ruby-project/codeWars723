@@ -16,9 +16,9 @@ module KulykMariiaSixImpl
     end
 
     # Easy balance checking
-    def self.balance(b)
-      lines = b.split(/\n/)
-      init = balance = b.lines[0].to_f
+    def self.balance(balance)
+      lines = balance.split(/\n/)
+      init = balance = balance.lines[0].to_f
       res = ["Original Balance: #{'%.2f' % balance}"]
       items = 0
 
