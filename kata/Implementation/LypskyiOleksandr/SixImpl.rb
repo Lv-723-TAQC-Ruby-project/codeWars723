@@ -126,7 +126,7 @@ def self.nba_cup(result_sheet, to_find)
       team_results[second_team_name]['Scored'] += second_team_score
       team_results[second_team_name]['Conceded'] += first_team_score
 
-    elsif first_team_score < second_team_score
+    else 
       team_results[second_team_name]['W'] += 1
       team_results[second_team_name]['Scored'] += second_team_score
       team_results[second_team_name]['Conceded'] += first_team_score
@@ -134,16 +134,6 @@ def self.nba_cup(result_sheet, to_find)
       team_results[first_team_name]['L'] += 1
       team_results[first_team_name]['Scored'] += first_team_score
       team_results[first_team_name]['Conceded'] += second_team_score
-
-    else
-      team_results[first_team_name]['D'] += 1
-      team_results[second_team_name]['D'] += 1
-      team_results[first_team_name]['Scored'] += first_team_score
-      team_results[second_team_name]['Scored'] += second_team_score
-      team_results[first_team_name]['Conceded'] += second_team_score
-      team_results[second_team_name]['Conceded'] += first_team_score
-      team_results[first_team_name]['Points'] += 1
-      team_results[second_team_name]['Points'] += 1
     end
   end
 
