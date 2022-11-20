@@ -7,11 +7,11 @@ ListImpl::IMPL.each do |student_name, student_impl|
   RSpec.describe student_impl do
     describe 'Gap in Primes' do
       [
-        [[2,100,110], [101, 103]],
-        [[4,100,110], [103, 107]],
-        [[6,100,110], nil],
-        [[8,300,400], [359, 367]],
-        [[10,300,400], [337, 347]],
+        [2, 100, 110, [101, 103]],
+        [4, 100, 110, [103, 107]],
+        [6, 100, 110, nil],
+        [8, 300, 400, [359, 367]],
+        [10, 300, 400, [337, 347]],
       ].each do |g, m, n, expect_result|
       it 'Should find the first pair of two prime numbers spaced with a gap of g between the limits m, n if these numbers exist otherwise nil' do
         expect(student_impl.gap(g, m, n)).to eq(expect_result)

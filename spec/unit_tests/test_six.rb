@@ -48,17 +48,17 @@ ListImpl::IMPL.each do |student_name, student_impl|
      "Houston Rockets 120 New Orleans Pelicans 100,Boston Celtics 111 Brooklyn Nets 105,Charlotte Hornets 94 Chicago Bulls 86,"\
      "Cleveland Cavaliers 103 Dallas Mavericks 97"
 
-teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks,Indiana Pacers,Memphis Grizzlies,"\
+      teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks,Indiana Pacers,Memphis Grizzlies,"\
          "Los Angeles Lakers,Minnesota Timberwolves,Phoenix Suns,Portland Trail Blazers,New Orleans Pelicans,"\
          "Sacramento Kings,Los Angeles Clippers,Houston Rockets,Denver Nuggets,Cleveland Cavaliers,Milwaukee Bucks,"\
          "Oklahoma City Thunder, San Antonio Spurs,Boston Celtics,Philadelphia 76ers,Brooklyn Nets,Chicago Bulls,"\
          "Detroit Pistons,Utah Jazz,Miami Heat,Charlotte Hornets,Toronto Raptors,Orlando Magic,Washington Wizards,"\
          "Golden State Warriors,Dallas Maver"
-        it 'should return team name,wins,losses,draws,scores,points,conceded points' do
-          expect(student_impl.nba_cup(r,"Boston Celtics")).to eql("Boston Celtics:W=4;D=0;L=0;Scored=403;Conceded=350;Points=12")
-          expect(student_impl.nba_cup(r,"Boston Celt")).to eql("Boston Celt:This team didn't play!")
-          expect(student_impl.nba_cup(r,"Charlotte Hornets")).to eql("Charlotte Hornets:W=2;D=0;L=2;Scored=373;Conceded=382;Points=6")  
-        end
+      it 'should return team name,wins,losses,draws,scores,points,conceded points' do
+        expect(student_impl.nba_cup(r, "Boston Celtics")).to eql("Boston Celtics:W=4;D=0;L=0;Scored=403;Conceded=350;Points=12")
+        expect(student_impl.nba_cup(r, "Boston Celt")).to eql("Boston Celt:This team didn't play!")
+        expect(student_impl.nba_cup(r, "Charlotte Hornets")).to eql("Charlotte Hornets:W=2;D=0;L=2;Scored=373;Conceded=382;Points=6")
+      end
     end
 
     describe 'Rainfall' do
@@ -91,19 +91,19 @@ teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks
         expect(student_impl.variance("Beijing", data)).to eql 4808.37138888889
       end
 
-        end
+    end
 
-        describe 'Help the bookseller' do
-          [
-            [["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"], %w[A B], '(A : 200) - (B : 1140)'],
-            [["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"], %w[A B C D], '(A : 0) - (B : 1290) - (C : 515) - (D : 600)'],
-            [["CBART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"], %w[A B C W], '(A : 0) - (B : 114) - (C : 70) - (W : 0)'],
-            [["ROXANNE 102", "RHODODE 123", "BKWRKAA 125", "BTSQZFG 239", "DRTYMKH 060"], %w[B R D X], '(B : 364) - (R : 225) - (D : 60) - (X : 0)']
-          ].each do|list_of_art, list_of_cat, result|
-            it 'Should return the string with the categories and the sum of the unique book of category' do
-              expect(student_impl.stockList(list_of_art, list_of_cat)).to eq result
-            end
-          end
+    describe 'Help the bookseller' do
+      [
+        [["ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"], %w[A B], '(A : 200) - (B : 1140)'],
+        [["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"], %w[A B C D], '(A : 0) - (B : 1290) - (C : 515) - (D : 600)'],
+        [["CBART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"], %w[A B C W], '(A : 0) - (B : 114) - (C : 70) - (W : 0)'],
+        [["ROXANNE 102", "RHODODE 123", "BKWRKAA 125", "BTSQZFG 239", "DRTYMKH 060"], %w[B R D X], '(B : 364) - (R : 225) - (D : 60) - (X : 0)']
+      ].each do |list_of_art, list_of_cat, result|
+        it 'Should return the string with the categories and the sum of the unique book of category' do
+          expect(student_impl.stockList(list_of_art, list_of_cat)).to eq result
+        end
+      end
 
     end
 
@@ -144,7 +144,7 @@ teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks
         [40539911473216, 3568]
       ].each do |test_data, expect_result|
         it 'Should the building a pile of Cubes' do
-          expect (student_impl.find_nb(test_data)).to eq(expect_result)
+          expect(student_impl.find_nb(test_data)).to eq(expect_result)
         end
       end
     end
