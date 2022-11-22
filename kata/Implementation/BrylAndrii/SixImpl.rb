@@ -32,8 +32,8 @@ module BrylAndriiSixImpl
       arr.map!(&:to_f) # convert to float
       arr.map! { |n| sprintf('%.2f', n.to_f) } # format array to 2 decimal places
       clean = clean.gsub(/^$\n/i, '') #remove blank lines
-      clean = clean.gsub(/            \n/i, '')
-      clean = clean.gsub(/            /i, '')
+      clean = clean.gsub(/ {12}\n/i, '')
+      clean = clean.gsub(/ {12}/i, '')
       clean = clean.sub(/^.*\n/, '')
       clean = clean.gsub(/ [^ ]*$/, ' &')
       temp.each do |x|
