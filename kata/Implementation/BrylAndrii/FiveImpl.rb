@@ -7,11 +7,21 @@ module BrylAndriiFiveImpl
   class FiveImpl < Five
     # Gap in Primes
     def self.gap(g, m, n)
-      (m..n).each do |i|
-        next unless (2..(Math.sqrt(i).to_i)).none? { |n| (i % n).zero? }
-        return [i, i + g] if (2..(Math.sqrt(i + g).to_i)).none? { |n| ((i + g) % n).zero? }
+      numbers = (m).upto(n - 1).select { |b| b.odd? }
+      pair = nil
+      numbers.each do |number|
+        next unless is_prime?(number)
+        if is_prime?(number + g) && !(number + 1).upto(number + g - 1).any? { |b| is_prime?(b) }
+          pair = [number, number + g]
+          break
+        end
       end
-      nil
+      pair
+    end
+
+    def self.is_prime?(number)
+      return false if number <= 1
+      (2..Math.sqrt(number)).each { |i| return false if (number % i).zero? }
     end
 
     # Number of trailing zeros of N!
@@ -29,9 +39,41 @@ module BrylAndriiFiveImpl
     end
 
     # Which x for that sum?
-    def self.solve(m) end
+    def self.solve(m)
+      1 + (1 - (4 * m + 1) ** 0.5) / (2 * m)
+    end
 
     # Find the smallest
-    def self.smallest(n) end
+    def self.smallest(n)
+      n_arr = n.to_s.split("").map { |num| num.to_i }
+
+      if n_arr.each_index.select { |i| n_arr[i] == n_arr.min }.length == 1
+        n_arr2 = n_arr.dup
+        n_arr2.delete_at(0)
+        ind = n_arr2.each_index.select { |i| n_arr2[i] == n_arr2.min }.max + 1
+      else
+        ind = n_arr.each_index.select { |i| n_arr[i] == n_arr.min }.max
+      end
+      lowest = n_arr[ind]
+
+      if lowest == n_arr[0]
+        insert = 0
+      else
+        insert = n_arr.each_index.detect { |i| n_arr[i] > lowest }
+      end
+
+      if n_arr[0] == n_arr.max && !n_arr.include?(0)
+        max = n_arr.delete_at(0)
+        n_arr << max
+        [n_arr.join.to_i, 0, n_arr.length - 1]
+      elsif n_arr[1] == 0
+        n_arr.delete_at(1)
+        [n_arr.join.to_i, 0, 1]
+      else
+        n_arr.delete_at(ind)
+        n_arr.insert(insert, lowest)
+        [n_arr.join.to_i, ind, insert]
+      end
+    end
   end
 end

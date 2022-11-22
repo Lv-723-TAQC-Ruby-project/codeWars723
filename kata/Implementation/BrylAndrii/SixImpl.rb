@@ -22,7 +22,8 @@ module BrylAndriiSixImpl
     def self.balance(b)
       clean = b.gsub(/[^0-9a-z \n.]+/i, '') # remove all non-alphanumeric characters
       num = clean.gsub(/[^0-9 \n.]+/i, '') # remove all non-numeric characters
-      price = num.gsub(/^[\d+.\n]+/i, '') # remove all non-float characters
+      num_clean = num.gsub(/^[^\d.]+/i, '') # remove all spaces at start of line
+      price = num_clean.gsub(/^[\d+.\n]+/i, '') # remove all non-float characters
       int = price.gsub(/ /i, '') # remove all spaces
       arr = int.split(" ") # split into array
       temp = arr
@@ -31,6 +32,8 @@ module BrylAndriiSixImpl
       arr.map!(&:to_f) # convert to float
       arr.map! { |n| sprintf('%.2f', n.to_f) } # format array to 2 decimal places
       clean = clean.gsub(/^$\n/i, '') #remove blank lines
+      clean = clean.gsub(/            \n/i, '')
+      clean = clean.gsub(/            /i, '')
       clean = clean.sub(/^.*\n/, '')
       clean = clean.gsub(/ [^ ]*$/, ' &')
       temp.each do |x|
