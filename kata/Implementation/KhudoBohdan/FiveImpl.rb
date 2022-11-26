@@ -42,7 +42,7 @@ module KhudoBohdanFiveImpl
     end
 
     # 22. Perimeter of squares in a rectangle
-    def fib(num)
+    def self.fib(num)
       a = 0
       b = 1
       i = 0
@@ -53,7 +53,7 @@ module KhudoBohdanFiveImpl
       a
     end
 
-    def sum(num)
+    def self.sum(num)
       fib(num + 2) - 1
     end
 

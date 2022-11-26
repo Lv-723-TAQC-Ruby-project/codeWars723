@@ -180,12 +180,7 @@ module KhudoBohdanSixImpl
     def self.stockList(l_arg, m_arg)
       return '' if l_arg == [] || m_arg == []
 
-      sum = []
-      i = 0
-      while i < m_arg.count
-        sum.append(0)
-        i += 1
-      end
+      sum = Array.new(m_arg.count, 0)
 
       l_arg.each do |b|
         books = b.split(' ').to_a
