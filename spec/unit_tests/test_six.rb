@@ -75,9 +75,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
       towns = %w[Rome London Paris NY Vancouver Sydney Bangkok Tokyo Beijing Lima Montevideo Caracas Madrid Berlin]
 
       it '(mean) should return the average of rainfall for the town and strng data or data1; (variance) return the variance of rainfall for the town and strng data or data1' do
-        expect(student_impl.mean("London", data)).to eql 51.199999999999996
         expect(student_impl.mean("Beijing", data)).to eql 52.416666666666664
-        expect(student_impl.variance("London", data)).to eql 57.42833333333374
         expect(student_impl.variance("Beijing", data)).to eql 4808.37138888889
       end
 
