@@ -46,20 +46,29 @@ while t
     i += 1
   end
 
-  puts 'Please, input student number [1-9]:'
-  student_number = gets.chomp.to_i
-  if student_number < 1 || student_number > 9
-    puts 'Wrong student number!'
-    break
+  student_number = 0
+  repeat_student = true
+  while repeat_student
+    puts 'Please, input student number [1-9]:'
+    student_number = gets.chomp.to_i
+    if student_number < 1 || student_number > 9
+      puts 'Wrong student number! Repeat, please'
+    else
+      repeat_student = false
+    end
   end
   runner.user = ListImpl::IMPL[students[student_number - 1]]
 
-  system('cls')
-  puts 'Please, input task number [1-24]: '
-  task_number = gets.chomp.to_i
-  if task_number < 1 || task_number > 24
-    puts 'Wrong task number!'
-    break
+  task_number = 0
+  repeat_task = true
+  while repeat_task
+    puts 'Please, input task number [1-24]: '
+    task_number = gets.chomp.to_i
+    if task_number < 1 || task_number > 24
+      puts 'Wrong task number! Repeat, please'
+    else
+      repeat_task = false
+    end
   end
 
   methods[task_number].call
