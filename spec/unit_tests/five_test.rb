@@ -66,8 +66,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [(209917), [29917, 0, 1]],
         [(285365), [238565, 3, 1]],
         [(269045), [26945, 3, 0]],
-        [(296837), [239687, 4, 1]],
-        [(1000000), [100000, 0, 1]]
+        [(296837), [239687, 4, 1]]
       ].each do |test_data, expect_result|
         it 'Should find the smallest integer n such that n^2 is greater than a given integer p' do
           expect(student_impl.smallest(test_data)).to eq(expect_result)

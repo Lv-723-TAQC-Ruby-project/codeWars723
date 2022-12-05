@@ -23,9 +23,8 @@ module KovalyovVladyslavEightImpl
       end
     end
 
-    def self.count_positives_sum_negatives(_lst)
+    def self.count_positives_sum_negatives(lst)
       return sum if sum == []
-
       count = [0, 0]
       sum.each do |i|
         if i.positive?

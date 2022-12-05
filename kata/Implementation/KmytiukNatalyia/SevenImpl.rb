@@ -5,8 +5,7 @@ require './kata/Seven'
 module KmytiukNatalyiaSevenImpl
   class SevenImpl < Seven
     def self.new_avg(arr, newavg)
-      i = if arr == [] then
-            0
+      i = if arr == []
           else
             arr.inject { |sum, x| sum + x }
           end

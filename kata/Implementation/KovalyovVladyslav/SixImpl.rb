@@ -30,13 +30,11 @@ module KovalyovVladyslavSixImpl
     def self.mean(town, str)
       temp(town, str).sum / temp(town, str).size
     rescue StandardError
-      -1
     end
 
     def self.variance(town, str)
       temp(town, str).map { |t| (t - mean(town, str)) ** 2 }.sum / temp(town, str).size
     rescue StandardError
-      -1
     end
 
     def self.temp(town, str)
@@ -59,9 +57,6 @@ module KovalyovVladyslavSixImpl
         stats[:Conceded] += score_2
 
         case score_1 <=> score_2
-        when 0
-          stats[:D] += 1
-          stats[:Points] += 1
         when 1
           stats[:W] += 1
           stats[:Points] += 3

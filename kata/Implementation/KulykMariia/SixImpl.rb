@@ -92,8 +92,6 @@ module KulykMariiaSixImpl
       case garden.length
       when 1
         return 1
-      when 0
-        return 0
       end
 
       (1..(garden.length - 1)).each do |i|

@@ -162,10 +162,8 @@ module KhudoBohdanSixImpl
         point2 = point2.to_i
         if point1 > point2
           win += 1
-        elsif point1 < point2
+        else point1 < point2
           lost += 1
-        elsif point1 == point2
-          draws += 1
         end
 
         scored += point1
