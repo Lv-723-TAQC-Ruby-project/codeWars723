@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require './kata/Six'
-require 'bigdecimal/math'
+
 module LypskyiOleksandrSixImpl
   class SixImpl < Six
     # 13. Build a pile of Cubes
@@ -48,7 +48,7 @@ module LypskyiOleksandrSixImpl
 
     # 15. Floating-point Approximation (I)
     def self.f(x)
-      BigMath.sqrt((1 + BigDecimal(x.to_s)), 20) - 1
+      x / (1 + Math.sqrt(x + 1))
     end
 
     # 16. Rainfall
