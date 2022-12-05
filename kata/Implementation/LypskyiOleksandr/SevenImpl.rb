@@ -7,7 +7,7 @@ module LypskyiOleksandrSevenImpl
     # 10. Looking for a benefactor
     def self.new_avg(arr, newavg)
       expected_donation = newavg * (arr.length + 1) - arr.sum
-      expected_donation.positive? ? expected_donation.ceil : raise
+      expected_donation.positive? ? expected_donation.ceil : (raise ArgumentError)
     end
 
     # 11. Sum of the first nth term of Series
