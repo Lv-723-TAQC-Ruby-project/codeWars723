@@ -29,17 +29,11 @@ module StanislavKovalovEightImpl
     end
 
     def self.count_positives_sum_negatives(lst)
-      return lst if lst == []
-
-      result = [0, 0]
-      lst.each do |a|
-        if a.positive?
-          result[0] += 1
-        elsif a.negative?
-          result[1] += a
-        end
+      if [[], nil].include?(lst)
+        []
+      else
+        [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
       end
-      result
     end
 
     def self.string_to_number(s)
@@ -57,6 +51,7 @@ module StanislavKovalovEightImpl
       end
       result
     end
+
     def self.am_I_Wilson(p)
       [5, 13, 563].include? p
     end

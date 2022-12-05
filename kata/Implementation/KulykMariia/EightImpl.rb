@@ -23,21 +23,16 @@ module KulykMariiaEightImpl
     def self.square_or_square_root(arr)
       arr.map do |n|
         sqrt = Math.sqrt(n)
-        (sqrt % 1).zero? ? sqrt : n**2
+        (sqrt % 1).zero? ? sqrt : n ** 2
       end
     end
 
     # Count of positives / sum of negatives
     def self.count_positives_sum_negatives(lst)
-      return [] if lst == []
-      pos = 0
-      neg = 0
-      lst.each do |i|
-        if i.positive?
-          pos += 1
-        else
-          neg += i
-        end
+      if [[], nil].include?(lst)
+        []
+      else
+        [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
       end
     end
 

@@ -24,18 +24,11 @@ module KmytiukNatalyiaEightImpl
     end
 
     def self.count_positives_sum_negatives(lst)
-      positives = []
-      negatives = []
-      return [] if lst == []
-
-      lst.each do |n|
-        if n.positive?
-          positives << n
-        else
-          negatives << n
-        end
+      if [[], nil].include?(lst)
+        []
+      else
+        [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
       end
-      [positives.count, negatives.sum]
     end
 
     def self.string_to_number(s)

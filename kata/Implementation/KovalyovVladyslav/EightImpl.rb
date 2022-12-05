@@ -24,17 +24,11 @@ module KovalyovVladyslavEightImpl
     end
 
     def self.count_positives_sum_negatives(_lst)
-      return sum if sum == []
-      count = [0, 0]
-      sum.each do |i|
-        if i.positive?
-          count[0] += 1
-        else
-          i.negative?
-          count[1] += i
-        end
+      if [[], nil].include?(_lst)
+        []
+      else
+        [_lst.count(&:positive?), _lst.select(&:negative?).reduce(0, :+)]
       end
-      count
     end
 
     def self.string_to_number(s)

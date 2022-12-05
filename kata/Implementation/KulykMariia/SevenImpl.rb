@@ -12,16 +12,16 @@ module KulykMariiaSevenImpl
 
     # Sum of the first nth term of Series
     def self.series_sum(n)
-      return '0.00' if n.zero?
-
-      value = 0.0
-      start = 1.0
-
-      n.times do
-        value += (1.0 / start)
-        start = 3.0
+      sum = 0
+      if n == 0
+        return "0.00"
+      else
+        (1..n).each { |i|
+          sum += 1.0 / (1 + (3 * (i - 1)))
+        }
       end
-      '%.2f' % value
+
+      return "%.2f" % sum.to_s
     end
 
     # Where is Vasya?

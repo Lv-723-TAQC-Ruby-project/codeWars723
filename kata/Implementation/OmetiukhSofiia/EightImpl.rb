@@ -27,9 +27,11 @@ module OmetiukhSofiiaEightImpl
     end
 
     def self.count_positives_sum_negatives(lst)
-      return lst if lst == []
-
-      [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
+      if [[], nil].include?(lst)
+        []
+      else
+        [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
+      end
     end
 
     def self.string_to_number(s)

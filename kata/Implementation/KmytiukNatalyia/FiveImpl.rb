@@ -6,13 +6,12 @@ module KmytiukNatalyiaFiveImpl
   class FiveImpl < Five
     # Gap in Primes
     def self.gap(gap, low, high)
-      primes_between(low,high).each_cons(2).find { |(a,b)| b-a == gap }
+      primes_between(low, high).each_cons(2).find { |(a, b)| b - a == gap }
     end
 
-    def self.primes_between(low,high)
+    def self.primes_between(low, high)
       Prime.each(high).select { |prime| prime >= low }
     end
-  
 
     def self.zeros(n)
       return 0 if n.zero?
@@ -45,16 +44,17 @@ module KmytiukNatalyiaFiveImpl
     end
 
     def self.smallest(n)
-      n_arr = n.to_s.split('').map(&:to_i)
-
-      if n_arr.each_index.select { |i| n_arr[i] == n_arr.min }.length == 1
-        n_arr2 = n_arr.dup
-        n_arr2.delete_at(0)
-        ind = n_arr2.each_index.select { |i| n_arr2[i] == n_arr2.min }.max + 1
-     # else
-      #  ind = n_arr.each_index.select { |i| n_arr[i] == n_arr.min }.max
+      result = [n]
+      size = n.to_s.size
+      size.times do |i1|
+        size.times do |i2|
+          digits = n.to_s
+          x = digits.slice!(i1)
+          digits.insert(i2, x)
+          result = [digits.to_i, i1, i2] if digits.to_i < result.first
+        end
       end
-      lowest = n_arr[ind]
+      result
     end
   end
 end
