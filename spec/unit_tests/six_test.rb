@@ -106,10 +106,6 @@ ListImpl::IMPL.each do |student_name, student_impl|
           expect(student_impl.artificial_rain(test_data)).to eq expect_result
         end
       end
-
-      it 'Should return the amount of water that will be collected' do
-
-      end
     end
 
     describe 'Floating-point Approximation' do

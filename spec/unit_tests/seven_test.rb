@@ -25,7 +25,6 @@ ListImpl::IMPL.each do |student_name, student_impl|
           expect{student_impl.new_avg(test_data, expect_result)}.to raise_error(ArgumentError)
         end
       end
-
     end
 
     describe 'Sum of the first nth term of Series' do
