@@ -13,8 +13,8 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [8, 300, 400, [359, 367]],
         [10, 300, 400, [337, 347]],
       ].each do |g, m, n, expect_result|
-      it 'Should find the first pair of two prime numbers spaced with a gap of g between the limits m, n if these numbers exist otherwise nil' do
-        expect(student_impl.gap(g, m, n)).to eq(expect_result)
+        it 'Should find the first pair of two prime numbers spaced with a gap of g between the limits m, n if these numbers exist otherwise nil' do
+          expect(student_impl.gap(g, m, n)).to eq(expect_result)
         end
       end
     end
@@ -55,7 +55,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
           temp = (student_impl.solve(test_data) - expect_result).abs()
           merr = 1e-12
           expect(temp).to be <= merr
-          #not finished
+          # not finished
         end
       end
     end
@@ -73,18 +73,18 @@ ListImpl::IMPL.each do |student_name, student_impl|
     #   end
     #   end
     # end
-     describe 'Find the smallest' do
-       [
-         [(261235), [126235, 2, 0]],
-         [(209917), [29917, 0, 1]],
-         [(285365), [238565, 3, 1]],
-         [(269045), [26945, 3, 0]],
-         [(296837), [239687, 4, 1]]
-       ].each do |test_data, expect_result|
-       it 'Should find the smallest integer n such that n^2 is greater than a given integer p' do
-         expect(student_impl.smallest(test_data)).to eq(expect_result)
-       end
-       end
-     end
+    describe 'Find the smallest' do
+      [
+        [(261235), [126235, 2, 0]],
+        [(209917), [29917, 0, 1]],
+        [(285365), [238565, 3, 1]],
+        [(269045), [26945, 3, 0]],
+        [(296837), [239687, 4, 1]]
+      ].each do |test_data, expect_result|
+        it 'Should find the smallest integer n such that n^2 is greater than a given integer p' do
+          expect(student_impl.smallest(test_data)).to eq(expect_result)
+        end
+      end
+    end
   end
 end
