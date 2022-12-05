@@ -32,6 +32,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
         [1, "1.00"],
         [2, "1.25"],
         [3, "1.39"],
+        [0, "0.00"]
       ].each do |number, expect_result|
         it 'Should calculate the sum of the first n terms of the series' do
           expect(student_impl.series_sum(number)).to eq(expect_result)

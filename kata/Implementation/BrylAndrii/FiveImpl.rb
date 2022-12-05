@@ -55,18 +55,9 @@ module BrylAndriiFiveImpl
         ind = n_arr.each_index.select { |i| n_arr[i] == n_arr.min }.max
       end
       lowest = n_arr[ind]
+      insert = n_arr.each_index.detect { |i| n_arr[i] > lowest }
 
-      if lowest == n_arr[0]
-        insert = 0
-      else
-        insert = n_arr.each_index.detect { |i| n_arr[i] > lowest }
-      end
-
-      if n_arr[0] == n_arr.max && !n_arr.include?(0)
-        max = n_arr.delete_at(0)
-        n_arr << max
-        [n_arr.join.to_i, 0, n_arr.length - 1]
-      elsif n_arr[1] == 0
+      if n_arr[1] == 0
         n_arr.delete_at(1)
         [n_arr.join.to_i, 0, 1]
       else
