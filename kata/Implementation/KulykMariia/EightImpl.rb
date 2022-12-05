@@ -29,11 +29,20 @@ module KulykMariiaEightImpl
 
     # Count of positives / sum of negatives
     def self.count_positives_sum_negatives(lst)
-      if [[], nil].include?(lst)
-        []
-      else
-        [lst.count(&:positive?), lst.select(&:negative?).reduce(0, :+)]
+      if lst.to_a.empty?
+        return []
       end
+      pos = 0
+      neg = 0
+      lst.each { |i|
+        if i > 0
+          pos += 1
+        else
+          neg += i
+        end
+      }
+      a = Array[pos, neg]
+      a
     end
 
     # Convert a String to a Number
