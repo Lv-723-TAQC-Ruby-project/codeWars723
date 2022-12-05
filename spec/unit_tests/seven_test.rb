@@ -21,7 +21,7 @@ ListImpl::IMPL.each do |student_name, student_impl|
       [
         [[14, 30, 5, 7, 9, 11, 15], 2]
       ].each do |test_data, expect_result|
-        it 'Should calculate how much the benefactor should give to each person such that he/she will have the same amount of money' do
+        it 'Should return an ArgumentError' do
           expect{student_impl.new_avg(test_data, expect_result)}.to raise_error(ArgumentError)
         end
       end
