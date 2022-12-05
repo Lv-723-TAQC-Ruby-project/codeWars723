@@ -4,6 +4,7 @@ require './kata/Seven'
 module FedykSvyatoslavSevenImpl
   class SevenImpl < Seven
     def self.new_avg(arr, newavg)
+      raise ArgumentError if arr.any? { |x| x > newavg }
       donations = (newavg * (arr.size + 1) - arr.sum).ceil
       raise 'Negative donations!' if donations.negative?
 

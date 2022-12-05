@@ -29,7 +29,7 @@ module KulykMariiaEightImpl
 
     # Count of positives / sum of negatives
     def self.count_positives_sum_negatives(lst)
-      return [] if lst == 0
+      return [] if lst == []
       pos = 0
       neg = 0
       lst.each do |i|

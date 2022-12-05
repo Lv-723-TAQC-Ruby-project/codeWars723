@@ -14,7 +14,7 @@ module KmytiukNatalyiaSevenImpl
 
       return res.ceil if res.positive?
 
-      raise ValueError
+      raise ArgumentError
     end
 
     def self.series_sum(n)
