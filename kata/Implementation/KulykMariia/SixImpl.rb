@@ -120,7 +120,7 @@ module KulykMariiaSixImpl
 
     # Floating-point Approximation (I)
     def self.f(x)
-      x.to_f / (1 + Math.sqrt(1 + x.to_f))
+      x / (1 + Math.sqrt(1 + x))
     end
 
     # Ranking NBA
@@ -138,13 +138,7 @@ module KulykMariiaSixImpl
 
       return unless table[name_team]
 
-      "#{name_team}:\
-      W=#{table[name_team][:W]};\
-      D=#{table[name_team][:D]};\
-      L=#{table[name_team][:L]};\
-      Scored=#{table[name_team][:Scored]};\
-      Conceded=#{table[name_team][:Conceded]};\
-      Points=#{table[name_team][:Points]}"
+      "#{name_team}:W=#{table[name_team][:W]};D=#{table[name_team][:D]};L=#{table[name_team][:L]};Scored=#{table[name_team][:Scored]};Conceded=#{table[name_team][:Conceded]};Points=#{table[name_team][:Points]}"
     end
 
     def self.divide_to_elements(game, _name_team, table)
