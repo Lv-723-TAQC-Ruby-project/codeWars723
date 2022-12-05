@@ -114,9 +114,10 @@ ListImpl::IMPL.each do |student_name, student_impl|
 
     describe 'Floating-point Approximation' do
       [
-        [[2], 1],
-        [[1, 2, 1, 2, 1], 3],
-        [[4, 2, 3, 3, 2], 4]
+        [2.6e-08, 1.29999999155e-08],
+        [1.4e-09, 6.999999997549999e-10],
+        [5.0e-06, 2.499996875007812e-06],
+        [2.4e-07, 1.1999999280000085e-07],
       ].each do |test_data, expected_result|
         it 'Should return digits with floating-point approximation ' do
           expect(student_impl.f(test_data)).to eql(expected_result)
