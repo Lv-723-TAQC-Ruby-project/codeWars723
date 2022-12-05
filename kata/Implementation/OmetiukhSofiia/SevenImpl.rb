@@ -6,7 +6,7 @@ module OmetiukhSofiiaSevenImpl
   class SevenImpl < Seven
     def self.new_avg(arr, newavg)
       x = (newavg * (arr.length + 1) - arr.sum).ceil
-      raise 'Inappropriate donation amount' if x <= 0
+      raise ArgumentError if x <= 0
 
       x
     end
