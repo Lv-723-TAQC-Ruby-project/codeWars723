@@ -25,7 +25,7 @@ module LypskyiOleksandrFiveImpl
     end
 
     # 22. Perimeter of squares in a rectangle
-    def fib(n)
+    def self.fib(n)
       total_sum = 1
       first_num = 1
       second_num = 1
