@@ -6,7 +6,7 @@
 
 # Run all tests 
 
-    rspec .\spec\unit_tests\**_test.rb
+    rspec .\spec\unit_tests\**.rb
 
 # Run specific kata
 
