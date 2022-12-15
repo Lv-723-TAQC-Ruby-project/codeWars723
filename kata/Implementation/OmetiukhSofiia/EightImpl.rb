@@ -16,7 +16,7 @@ module OmetiukhSofiiaEightImpl
       (mpg * 1.609344 / 4.54609188).round(2)
     end
 
-    def self.square_or_square_root(arr)
+    def self.square_or_square_root(arrr)
       arr.map do |num|
         if (Math.sqrt(num) % 1).zero?
           Integer.sqrt(num)
